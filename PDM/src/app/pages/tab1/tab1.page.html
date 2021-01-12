@@ -3,10 +3,20 @@
 <ion-content [fullscreen]="true">
    <ion-list>
    <ion-item *ngFor="let noticia of noticias">
-     <ion-label>
-     <h2>{{ noticia.title }}</h2>
-     <p>{{ noticia.description }}</p>
-   </ion-label>
+    <ion-card>
+  <ion-card-header>
+    <ion-card-title>
+    {{ noticia.title }}
+    </ion-card-title>
+    <ion-card-subtitle>
+    {{ noticia.cicle_name }}
+    <ion-datetime disabled displayFormat="DD/MM/YY" value="{{ noticia.created_at }}"></ion-datetime>
+    </ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+  <p>{{ noticia.description }}</p>
+  </ion-card-content>
+    </ion-card>
    </ion-item>
  </ion-list>
  <ion-button expand="block" (click)="cargarNoticias()">Cargar Usuarios</ion-button>

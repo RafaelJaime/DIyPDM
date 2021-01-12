@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {HttpService} from '../../services/http.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpService) { }
 
   ngOnInit() {
   }
 
+  post() {
+    this.http.postUser(Nombre, Apellido, Email, contrasena, c_constrasena, ciclo).then(
+      res=> {
+        alert(JSON.stringify(res));
+      }
+    )
+  }
 }
