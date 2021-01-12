@@ -1,5 +1,16 @@
 <app-header [title]="title || 'Offers'"></app-header>
 
 <ion-content [fullscreen]="true">
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-list>
+   <ion-item *ngFor="let offer of offers">
+     <ion-avatar slot="start">
+       <img [src]="offer.picture.medium">
+     </ion-avatar>
+     <ion-label>
+     <h2>{{ offer.name.first }}</h2>
+     <p>{{ offer.email }}</p>
+   </ion-label>
+   </ion-item>
+ </ion-list>
+ <ion-button expand="block" (click) = "cargarUsuarios()">Cargar Usuarios</ion-button>
 </ion-content>
