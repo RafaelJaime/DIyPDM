@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterPage implements OnInit {
 
+
+  userh = new User();
   constructor() { }
 
   ngOnInit() {
   }
 
+}
+
+export class User{
+  name: string;
+  surname: string;
+  email: string;
+  password: string;
+  c_password: string;
+  cycle_id: number;
 }
