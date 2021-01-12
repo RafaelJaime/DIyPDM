@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
-<<<<<<< HEAD
-import { HttpClient } from '@angular/common/http';
 import { summaryFileName } from '@angular/compiler/src/aot/util';
-=======
 import { HttpClient, HttpHeaders } from '@angular/common/http';
->>>>>>> eb3fc3747a3a72e07bb4950a68f5e39720e37d9a
 @Injectable({
   providedIn: 'root'
 })
