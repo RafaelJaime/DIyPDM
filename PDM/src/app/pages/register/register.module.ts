@@ -1,14 +1,13 @@
-  
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LoginPageRoutingModule } from './login-routing.module';
+import { RegisterPageRoutingModule } from './register-routing.module';
 
-import { LoginPage } from './login.page';
-import { InputModule } from '../components/input/input.module';
+import { RegisterPage } from './register.page';
+import { InputModule } from 'src/app/components/input/input.module';
 
 @NgModule({
   imports: [
@@ -16,8 +15,8 @@ import { InputModule } from '../components/input/input.module';
     FormsModule,
     IonicModule,
     InputModule,
-    LoginPageRoutingModule,
+    RegisterPageRoutingModule
   ],
-  declarations: [LoginPage],
+  declarations: [RegisterPage]
 })
-export class LoginPageModule {}
+export class RegisterPageModule {}
