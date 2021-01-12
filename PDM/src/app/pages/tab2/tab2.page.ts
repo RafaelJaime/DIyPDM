@@ -13,32 +13,32 @@ export class Tab2Page {
   token: any;
 
   constructor(private http: HttpService) {
-      this.hacerLogin();
+      // this.hacerLogin();
   }
 
-  hacerLogin() {
-    this.http.login()
-    .then(data => {
-    this.token = data;
-    });
-  }
+  // hacerLogin() {
+  //   this.http.login()
+  //   .then(data => {
+  //   this.token = data;
+  //   });
+  // }
 
-  obtenerProducts() {
-    this.http.getProducts(this.token)
-    .then(data => {
-    this.offers = data;
-    });
-  }
+  // obtenerProducts() {
+  //   this.http.getProducts(this.token)
+  //   .then(data => {
+  //   this.offers = data;
+  //   });
+  // }
 
-  loadOffers(){
-  this.http.loadOffers().then(
-    (res: any) => {
-      this.offers = res.results;
-    },
-    (error) =>{
-      console.error(error);
-    }
-  );
-  }
+  // loadOffers(){
+  // this.http.loadOffers().then(
+  //   (res: any) => {
+  //     this.offers = res.results;
+  //   },
+  //   (error) =>{
+  //     console.error(error);
+  //   }
+  // );
+  // }
 
 }

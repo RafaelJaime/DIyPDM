@@ -11,12 +11,4 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
-
-  post() {
-    this.http.postUser(Nombre, Apellido, Email, contrasena, c_constrasena, ciclo).then(
-      res=> {
-        alert(JSON.stringify(res));
-      }
-    )
-  }
 }

@@ -30,8 +30,8 @@ export class HttpService {
    * post
    */
 
-  postUser(Nombre:string, Apellido:string, Email:string, contrasena:string, c_constrasena:string, ciclo:number) {
-    const datos = {
+  postUser(Nombre:String, Apellido:String, Email:String, contrasena:String, c_constrasena:String, ciclo:Number) {
+    const data = {
       name: Nombre,
       surname: Apellido,
       email: Email,
@@ -39,12 +39,13 @@ export class HttpService {
       c_password: c_constrasena,
       cycle_id: ciclo
     }
+    console.log(data);
     const options = {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     }
-    return this.http.post(this.url, JSON.stringify(datos), options).toPromise();
+    return this.http.post(this.url + "register", JSON.stringify(data), options).toPromise();
   }
   
 }
