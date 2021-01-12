@@ -2,15 +2,12 @@
 
 <ion-content [fullscreen]="true">
    <ion-list>
-   <ion-item *ngFor="let usuario of usuarios">
-     <ion-avatar slot="start">
-       <img [src]="usuario.picture.medium">
-     </ion-avatar>
+   <ion-item *ngFor="let noticia of noticias">
      <ion-label>
-     <h2>{{ usuario.name.first }}</h2>
-     <p>{{ usuario.email }}</p>
+     <h2>{{ noticia.title }}</h2>
+     <p>{{ noticia.description }}</p>
    </ion-label>
    </ion-item>
  </ion-list>
- <ion-button expand="block" (click) = "cargarUsuarios()">Cargar Usuarios</ion-button>
+ <ion-button expand="block" (click)="cargarNoticias()">Cargar Usuarios</ion-button>
 </ion-content>

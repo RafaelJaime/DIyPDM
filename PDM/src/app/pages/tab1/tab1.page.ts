@@ -9,6 +9,8 @@ export class Tab1Page {
 
   usuarios: any[];
 
+  noticias: any[];
+
   constructor(private http: HttpService) {}
 
   cargarUsuarios(){
@@ -19,6 +21,17 @@ export class Tab1Page {
     (error) =>{
       console.error(error);
     }
-  );
-}
+  )};
+  cargarNoticias() {
+    this.http.loadNotices().then(
+      (res: any) => {
+        if (res.success) {
+          this.noticias = res.data;
+        }
+      },
+      (error) =>{
+        console.error(error);
+      }
+    );
+  }
 }
