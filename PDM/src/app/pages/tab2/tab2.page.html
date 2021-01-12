@@ -2,15 +2,32 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-   <ion-item *ngFor="let offer of offers">
-     <ion-avatar slot="start">
-       <img [src]="offer.picture.medium">
-     </ion-avatar>
-     <ion-label>
-     <h2>{{ offer.name.first }}</h2>
-     <p>{{ offer.email }}</p>
-   </ion-label>
-   </ion-item>
+   <ion-card *ngFor="let offer of offers">
+    <ion-card-header>
+      <ion-card-subtitle>{{ offer.email }}</ion-card-subtitle>
+      <ion-card-title>{{ offer.name.first }}</ion-card-title>
+    </ion-card-header>
+
+      <ion-card-content>
+        Keep close to Nature's heart... and break clear away, once in awhile,
+        and climb a mountain or spend a week in the woods. Wash your spirit clean.
+      </ion-card-content>
+      <ion-footer>
+        <ion-toolbar>
+         <ion-segment expand="full">
+          <ion-segment-button value="home">
+            <ion-icon name="home"></ion-icon>
+          </ion-segment-button>
+          <ion-segment-button value="heart">
+            <ion-icon name="heart"></ion-icon>
+          </ion-segment-button>
+          <ion-segment-button value="pin">
+            <ion-icon name="pin"></ion-icon>
+          </ion-segment-button>
+        </ion-segment>
+        </ion-toolbar>
+      </ion-footer>
+    </ion-card>
  </ion-list>
  <ion-button expand="block" (click) = "cargarUsuarios()">Cargar Usuarios</ion-button>
 </ion-content>
