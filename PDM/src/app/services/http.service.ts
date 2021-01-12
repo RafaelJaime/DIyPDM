@@ -5,9 +5,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HttpService {
 
+  url = 'https://randomuser.me/api/';
   constructor(public http: HttpClient) { }
   loadUsers(){
     return this.http
-   .get('https://randomuser.me/api/?results=25').toPromise();
+   .get( this.url + '?results=25').toPromise();
   }
 }
