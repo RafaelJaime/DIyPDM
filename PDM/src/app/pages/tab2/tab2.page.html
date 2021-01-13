@@ -1,25 +1,29 @@
 <app-header [title]="title || 'Offers'"></app-header>
 
 <ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label class="ion-text-center">Requested offers {{size}}</ion-label>
+  </ion-item>
+
   <ion-list>
    <ion-card *ngFor="let offer of offers">
     <ion-card-header>
       <ion-card-title>{{ offer.headline }}</ion-card-title>
     </ion-card-header>
 
-      <ion-card-content>
+      <ion-card-content position="fixed">
        {{ offer.description }}
       </ion-card-content>
       <ion-footer>
         <ion-toolbar>
-         <ion-segment swipeGesture="true" scrollable="true">
+         <ion-segment type="submit" swipeGesture="true" scrollable="true">
           <ion-segment-button value="time">
             <ion-icon name="time"></ion-icon>
           </ion-segment-button>
           <ion-segment-button value="eye">
             <ion-icon name="eye"></ion-icon>
           </ion-segment-button>
-          <ion-segment-button value="checkmark">
+          <ion-segment-button value="checkmark" (click)="Applied()">
             <ion-icon name="checkmark"></ion-icon>
           </ion-segment-button>
         </ion-segment>

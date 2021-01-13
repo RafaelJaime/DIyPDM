@@ -11,6 +11,8 @@ export class Tab2Page {
 
   offers: any[];
 
+  size: any;
+
   constructor(private http: HttpService) {
     this.loadOffers();
   }
@@ -20,6 +22,7 @@ export class Tab2Page {
       (res: any) => {
         if (res.success) {
           this.offers = res.data
+          this.size=this.offers.length;
           console.log(this.offers);
         }
       },
@@ -27,6 +30,10 @@ export class Tab2Page {
         console.error(error);
       }
     );
+  }
+
+  Applied(){
+    this.offers.num_candidates= this.offers.num_candidates+1;
   }
 
 }
