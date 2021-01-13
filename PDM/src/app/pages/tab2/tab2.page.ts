@@ -10,7 +10,7 @@ import { HttpService } from '../../services/http.service';
 export class Tab2Page {
 
   offers: any[];
-
+  
   constructor(private http: HttpService) {
     this.loadOffers();
   }
