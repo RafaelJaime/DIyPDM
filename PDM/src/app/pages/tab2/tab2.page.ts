@@ -9,36 +9,24 @@ import { HttpService } from '../../services/http.service';
 })
 export class Tab2Page {
 
-  offers: any;
-  token: any;
+  offers: any[];
 
   constructor(private http: HttpService) {
-      // this.hacerLogin();
   }
 
-  // hacerLogin() {
-  //   this.http.login()
-  //   .then(data => {
-  //   this.token = data;
-  //   });
-  // }
+  loadOffers(){
+  this.http.loadOffers().then(
+    (res: any) => {
+      if (res.success) {
+        this.offers = res.results
+        console.log(this.offers);
+      }
 
-  // obtenerProducts() {
-  //   this.http.getProducts(this.token)
-  //   .then(data => {
-  //   this.offers = data;
-  //   });
-  // }
-
-  // loadOffers(){
-  // this.http.loadOffers().then(
-  //   (res: any) => {
-  //     this.offers = res.results;
-  //   },
-  //   (error) =>{
-  //     console.error(error);
-  //   }
-  // );
-  // }
+    },
+    (error) =>{
+      console.error(error);
+    }
+  );
+  }
 
 }
