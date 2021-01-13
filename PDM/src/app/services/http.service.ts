@@ -39,6 +39,18 @@ export class HttpService {
       }); 
     });
   }
+  loadOffersApplied(){
+    console.log(this.token.data.id)
+    return new Promise(resolve => { 
+      this.http.get(this.url + 'offersApplied/' + this.token.data.id, {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + this.token.data.token),
+      }).subscribe(data => {
+        resolve(data);
+      }, err => { 
+        console.log(err); 
+      });
+    });
+  }
 
   /**
    * post

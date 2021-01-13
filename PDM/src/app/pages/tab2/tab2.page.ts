@@ -33,7 +33,7 @@ export class Tab2Page {
   }
 
   Applied(){
-    this.offers.num_candidates= this.offers.num_candidates+1;
+
   }
 
 }
