@@ -31,10 +31,12 @@ export class HttpService {
     return new Promise(resolve => { 
       this.http.get(this.url + 'offers', 
       { 
-        headers: new HttpHeaders().set('Authorization', 'Bearer ' + this.token.data.token)
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + this.token.data.token),
       }).subscribe(data => { 
-        resolve(data); 
-      }, err => { console.log(err); 
+        console.log(data);
+        resolve(data);
+      }, err => { 
+        console.log(err); 
       }); 
     });
   }

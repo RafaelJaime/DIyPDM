@@ -12,21 +12,21 @@ export class Tab2Page {
   offers: any[];
 
   constructor(private http: HttpService) {
+    http.LoginUser('a@a.com', 'a');
   }
 
-  loadOffers(){
-  this.http.loadOffers().then(
-    (res: any) => {
-      if (res.success) {
-        this.offers = res.results
-        console.log(this.offers);
+  loadOffers() {
+    this.http.loadOffers().then(
+      (res: any) => {
+        if (res.success) {
+          console.log(this.offers);
+          this.offers = res.data
+        }
+      },
+      (error) => {
+        console.error(error);
       }
-
-    },
-    (error) =>{
-      console.error(error);
-    }
-  );
+    );
   }
 
 }
