@@ -32,8 +32,7 @@ export class HttpService {
       this.http.get(this.url + 'offers', 
       { 
         headers: new HttpHeaders().set('Authorization', 'Bearer ' + this.token.data.token),
-      }).subscribe(data => { 
-        console.log(data);
+      }).subscribe(data => {
         resolve(data);
       }, err => { 
         console.log(err); 

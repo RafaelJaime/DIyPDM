@@ -10,6 +10,7 @@ export class Tab1Page {
   noticias: any[];
 
   constructor(private http: HttpService) {
+    http.LoginUser('a@a.com', 'a');
     this.cargarNoticias();
   }
   cargarNoticias() {

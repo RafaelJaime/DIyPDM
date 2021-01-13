@@ -12,15 +12,15 @@ export class Tab2Page {
   offers: any[];
 
   constructor(private http: HttpService) {
-    http.LoginUser('a@a.com', 'a');
+    this.loadOffers();
   }
 
   loadOffers() {
     this.http.loadOffers().then(
       (res: any) => {
         if (res.success) {
-          console.log(this.offers);
           this.offers = res.data
+          console.log(this.offers);
         }
       },
       (error) => {
