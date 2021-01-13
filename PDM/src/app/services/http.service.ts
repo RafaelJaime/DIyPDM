@@ -17,35 +17,50 @@ export class HttpService {
    * Get
    */
 
-  loadUsers(){
+  loadUsers() {
     return this.http
-   .get( this.url2 + '?results=25').toPromise();
+      .get(this.url2 + '?results=25').toPromise();
   }
   loadNotices() {
     return this.http
-    .get( this.url + 'articles').toPromise();
+      .get(this.url + 'articles').toPromise();
   }
 
   /**
    * post
    */
 
-  postUser(Nombre:String, Apellido:String, Email:String, contrasena:String, c_constrasena:String, ciclo:Number) {
+  RegisterUser(Nombre: String, Apellido: String, Email: String, contrasena: String, c_constrasena: String, ciclo: Number) {
     const data = {
       name: Nombre,
       surname: Apellido,
       email: Email,
       password: contrasena,
       c_password: c_constrasena,
-      cycle_id: ciclo
+      cicle_id: ciclo
     }
     console.log(data);
-    const options = {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    }
-    return this.http.post(this.url + "register", JSON.stringify(data), options).toPromise();
+    return new Promise(resolve => {
+      this.http.post(this.url + "register", data).subscribe(data => {
+        this.token = data;
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
   }
-  
+  LoginUser(correo: String, contrasena: String) {
+    return new Promise(resolve => { 
+      this.http.post(this.url + 'login', 
+      { 
+        email: correo, 
+        password: contrasena
+      }).subscribe(data => { 
+        this.token = data; 
+        resolve(data); 
+      }, err => { console.log(err); 
+      }); 
+    });
+  }
+
 }

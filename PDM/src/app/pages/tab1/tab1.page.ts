@@ -7,26 +7,17 @@ import { HttpService } from '../../services/http.service';
 })
 export class Tab1Page {
 
-  usuarios: any[];
-
   noticias: any[];
 
-  constructor(private http: HttpService) {}
-
-  cargarUsuarios(){
-  this.http.loadUsers().then(
-    (res: any) => {
-      this.usuarios = res.results;
-    },
-    (error) =>{
-      console.error(error);
-    }
-  )};
+  constructor(private http: HttpService) {
+    this.cargarNoticias();
+  }
   cargarNoticias() {
     this.http.loadNotices().then(
       (res: any) => {
         if (res.success) {
           this.noticias = res.data;
+          console.log(this.noticias);
         }
       },
       (error) =>{
