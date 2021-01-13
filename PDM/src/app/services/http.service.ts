@@ -27,7 +27,7 @@ export class HttpService {
   }
 
   loadOffers(){
-    console.log(this.token.data.token)
+    console.log(this.token)
     return new Promise(resolve => { 
       this.http.get(this.url + 'offers', 
       { 
@@ -86,6 +86,18 @@ export class HttpService {
         resolve(data); 
       }, err => { console.log(err); 
       }); 
+    });
+  }
+
+  OffersApply(){
+    return new Promise(resolve => { 
+      this.http.post(this.url + 'applied/', {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + this.token.data.token),
+      }).subscribe(data => {
+        resolve(data);
+      }, err => { 
+        console.log(err); 
+      });
     });
   }
 

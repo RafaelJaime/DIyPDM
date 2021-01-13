@@ -1,3 +1,4 @@
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { HttpService } from '../../services/http.service';
 
@@ -33,7 +34,14 @@ export class Tab2Page {
   }
 
   Applied(){
-
+    this.http.OffersApply().then(
+      (res: any) => {
+          console.log(res);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
 }
