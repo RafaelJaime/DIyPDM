@@ -23,7 +23,12 @@ export class LoginPage implements OnInit {
         this.token = data;
         console.log(this.token);
         if (this.token.success) {
-          this.router.navigate(['/tabs/tab1'])
+          console.log(this.token.data.type)
+          if (!(this.token.data.type === "client")) {
+            this.router.navigate(['administrador/tabs/page1']);
+          } else {
+            this.router.navigate(['tabs/tab1']);
+          }
         }
       });
   }
