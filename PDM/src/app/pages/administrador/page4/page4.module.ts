@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { Page4PageRoutingModule } from './page4-routing.module';
 
 import { Page4Page } from './page4.page';
+import { HeaderAdminModule } from 'src/app/components/header-admin/header-admin.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    Page4PageRoutingModule
+    Page4PageRoutingModule,
+    HeaderAdminModule
   ],
   declarations: [Page4Page]
 })

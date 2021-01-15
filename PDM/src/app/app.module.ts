@@ -1,3 +1,4 @@
+import { HeaderAdminModule } from './components/header-admin/header-admin.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     IonicModule.forRoot(), 
     AppRoutingModule, 
     HeaderModule,
-    HttpClientModule
+    HttpClientModule,
+    HeaderAdminModule
   ],
   providers: [
     StatusBar,
