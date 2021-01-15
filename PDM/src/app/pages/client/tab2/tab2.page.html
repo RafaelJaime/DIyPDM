@@ -12,7 +12,7 @@
       <ion-label>All</ion-label>
       <ion-icon name="albums"></ion-icon>
     </ion-segment-button>
-    <ion-segment-button *ngFor="let offer of offers" (click)="loadOffersById(offer.id)">
+    <ion-segment-button *ngFor="let offer of offers" (click)="loadOffersById(cicle_id)">
       <ion-label>{{offer.cicle_id}}</ion-label>
       <ion-icon name="browsers"></ion-icon>
     </ion-segment-button>
