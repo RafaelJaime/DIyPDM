@@ -49,7 +49,7 @@ export class HttpService {
   }
 
   loadOffers(){
-    console.log(this.token)
+    console.log(this.token);
     return new Promise(resolve => { 
       this.http.get(this.url + 'offers', 
       { 
