@@ -30,4 +30,8 @@ export class Page3Page implements OnInit {
       }
     );
   }
+  deleteOffer(id:number) {
+    console.log("Has borrado la noticia con id: " + id);
+    this.loadOffers();
+  }
 }
