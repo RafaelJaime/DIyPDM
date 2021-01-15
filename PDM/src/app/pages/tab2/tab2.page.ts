@@ -1,6 +1,8 @@
-import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { Identifiers } from '@angular/compiler';
 import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { HttpService } from '../../services/http.service';
+import { Tab2ModalPage } from '../tab2-modal/tab2-modal.page';
 
 
 @Component({
@@ -14,15 +16,16 @@ export class Tab2Page {
 
   size: any;
 
-  constructor(private http: HttpService) {
-    this.loadOffers();
+  constructor(private http: HttpService,public ModalController: ModalController) {
+   this.loadOffers();
   }
 
   loadOffers() {
     this.http.loadOffers().then(
       (res: any) => {
         if (res.success) {
-          this.offers = res.data
+          this.offers = res.data;
+          this.http.setOffers(res.data);
           this.size=this.offers.length;
           console.log(this.offers);
         }
@@ -33,15 +36,47 @@ export class Tab2Page {
     );
   }
 
-  Applied(){
-    this.http.OffersApply().then(
+  loadOffersById(id:number) {
+    this.http.loadOffers().then(
       (res: any) => {
-          console.log(res);
+        if (res.success) {
+          if(res.data.id==id){
+            this.offers = res.data;
+            this.http.setOffers(res.data);
+            this.size=this.offers.length;
+            console.log(this.offers);
+            console.log();
+        }
+        }
       },
       (error) => {
         console.error(error);
       }
     );
+  }
+
+  Applied(){
+    // this.http.OffersApply().then(
+    //   (res: any) => {
+    //       console.log(res);
+    //   },
+    //   (error) => {
+    //     console.error(error);
+    //   }
+    // );
+    console.log("Applied")
+  }
+
+  async ViewMore(id:number){
+    const modal = await this.ModalController.create({
+      component: Tab2ModalPage,
+      cssClass: 'tab2-modal'
+    });
+
+    this.http.setId(id);
+
+    console.log(id)
+    return await modal.present();
   }
 
 }

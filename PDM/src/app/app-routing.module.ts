@@ -17,7 +17,11 @@ const routes: Routes = [
   {
     path: 'administrador',
     loadChildren: () => import('./pages/administrador/tabs/tabs.module').then( m => m.TabsPageModule)
+  },  {
+    path: 'tab2-modal',
+    loadChildren: () => import('./pages/tab2-modal/tab2-modal.module').then( m => m.Tab2ModalPageModule)
   }
+
 
 
 ];

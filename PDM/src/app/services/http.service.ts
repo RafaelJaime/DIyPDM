@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { summaryFileName } from '@angular/compiler/src/aot/util';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { off } from 'process';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +12,28 @@ export class HttpService {
 
   token: any;
 
+  id: number;
+
+  offers: any[];
+
   constructor(public http: HttpClient) { }
+
+  setId(id:number){
+    this.id=id;
+  }
+
+  setOffers(offers:any){
+    this.offers=offers;
+    console.log(this.offers);
+  }
+
+  getOffers(){
+    return this.offers;
+  }
+
+  getId(){
+    return this.id;
+  }
 
   /**
    * Get
@@ -102,3 +124,4 @@ export class HttpService {
   }
 
 }
+

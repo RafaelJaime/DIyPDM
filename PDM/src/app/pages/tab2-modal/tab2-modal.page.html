@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Offer</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor="let offer of offers">
+    <ion-content>{{offer.headline}}</ion-content>
+  </ion-item>
+</ion-content>

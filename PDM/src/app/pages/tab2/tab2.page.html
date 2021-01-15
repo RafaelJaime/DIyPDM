@@ -6,6 +6,18 @@
   </ion-item>
 
   <ion-list>
+
+  <ion-segment color="primary" [(ngModel)]="type" (ionChange)="segmentChanged($event)" scrollable>
+    <ion-segment-button value="deposit" (click)="loadOffers()" checked>
+      <ion-label>All</ion-label>
+      <ion-icon name="albums"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button *ngFor="let offer of offers" (click)="loadOffers(offer.id)">
+      <ion-label>{{offer.cicle_id}}</ion-label>
+      <ion-icon name="browsers"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+
    <ion-card *ngFor="let offer of offers">
     <ion-card-header>
       <ion-card-title>{{ offer.headline }}</ion-card-title>
@@ -17,10 +29,7 @@
       <ion-footer>
         <ion-toolbar>
          <ion-segment type="submit" swipeGesture="true" scrollable="true">
-          <ion-segment-button value="time">
-            <ion-icon name="time"></ion-icon>
-          </ion-segment-button>
-          <ion-segment-button value="eye">
+          <ion-segment-button value="eye" (click)="ViewMore(offer.id)">
             <ion-icon name="eye"></ion-icon>
           </ion-segment-button>
           <ion-segment-button value="checkmark" (click)="Applied()">
@@ -32,3 +41,4 @@
     </ion-card>
  </ion-list>
 </ion-content>
+
