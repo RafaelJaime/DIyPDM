@@ -40,13 +40,10 @@ export class Tab2Page {
     this.http.loadOffers().then(
       (res: any) => {
         if (res.success) {
-          if(res.data.id==id){
             this.offers = res.data;
             this.http.setOffers(res.data);
             this.size=this.offers.length;
             console.log(this.offers);
-            console.log();
-        }
         }
       },
       (error) => {

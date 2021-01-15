@@ -18,14 +18,6 @@ export class HttpService {
 
   constructor(public http: HttpClient) { }
 
-  OffersPDF(){
-    console.log("PDF sent");
-  }
-
-  ParticipantsPDF(){
-    console.log("PDF sent");
-  }
-
   setId(id:number){
     this.id=id;
   }
