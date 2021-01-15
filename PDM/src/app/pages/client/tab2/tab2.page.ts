@@ -1,7 +1,7 @@
 import { Identifiers } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { HttpService } from '../../services/http.service';
+import { HttpService } from 'src/app/services/http.service';
 import { Tab2ModalPage } from '../tab2-modal/tab2-modal.page';
 
 
