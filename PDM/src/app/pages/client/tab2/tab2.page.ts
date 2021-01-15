@@ -12,18 +12,20 @@ import { Tab2ModalPage } from '../tab2-modal/tab2-modal.page';
 })
 export class Tab2Page {
 
+  loadedOffers: any[];
   offers: any[];
 
   size: any;
 
   constructor(private http: HttpService,public ModalController: ModalController) {
-   
+    this.loadOffers();
   }
 
   loadOffers() {
     this.http.loadOffers().then(
       (res: any) => {
         if (res.success) {
+          this.loadedOffers = res.data;
           this.offers = res.data;
           this.http.setOffers(res.data);
           this.size=this.offers.length;
