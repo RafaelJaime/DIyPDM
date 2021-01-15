@@ -17,7 +17,7 @@ export class Tab2Page {
   size: any;
 
   constructor(private http: HttpService,public ModalController: ModalController) {
-   this.loadOffers();
+   
   }
 
   loadOffers() {
