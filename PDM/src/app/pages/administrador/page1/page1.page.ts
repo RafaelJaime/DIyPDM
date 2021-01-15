@@ -12,4 +12,8 @@ export class Page1Page implements OnInit {
   ngOnInit() {
   }
 
+  Activate(id:number){
+    console.log("Client number "+id+" activated");
+  }
+
 }

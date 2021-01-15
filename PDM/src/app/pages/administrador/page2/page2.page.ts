@@ -12,4 +12,12 @@ export class Page2Page implements OnInit {
   ngOnInit() {
   }
 
+  OffersPDF(){
+    console.log("Offers PDF has been sent");
+  }
+
+  ParticipantsPDF(){
+    console.log("Participants PDF has been sent");
+  }
+
 }
