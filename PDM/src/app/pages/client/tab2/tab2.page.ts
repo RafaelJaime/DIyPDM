@@ -15,10 +15,12 @@ export class Tab2Page {
   loadedOffers: any[];
   offers: any[];
 
+  offersViewed: any[];
+
   size: any;
 
   constructor(private http: HttpService,public ModalController: ModalController) {
-    this.loadOffers();
+   this.loadOffers();
   }
 
   loadOffers() {
