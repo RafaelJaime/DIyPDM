@@ -18,10 +18,10 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('surname');
-            $table->unsignedInteger('cicle_id');
+            $table->unsignedInteger('cicle_id')->nullable();
             $table->foreign('cicle_id')->references('id')->on('cicles');
             $table->boolean('activate')->default(false);
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('email_verified_at');
             $table->string('password');
             $table->string('type')->default('client');
