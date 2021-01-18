@@ -56,16 +56,13 @@ export class Tab2Page {
     );
   }
 
-  Applied(){
-    // this.http.OffersApply().then(
-    //   (res: any) => {
-    //       console.log(res);
-    //   },
-    //   (error) => {
-    //     console.error(error);
-    //   }
-    // );
-    console.log("Applied")
+  ApplyOffer(id:number){
+    this.http.ApplyOffer(id)
+      .then(data => {
+        console.log(data);
+        }
+      );
+    this.loadOffers();
   }
 
   async ViewMore(id:number){
