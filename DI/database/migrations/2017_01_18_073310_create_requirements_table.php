@@ -19,6 +19,7 @@ class CreateRequirementsTable extends Migration
             $table->text('description');
             $table->unsignedInteger('offer_id');
             $table->foreign('offer_id')->references('id')->on('offers');
+            $table->timestamps();
         });
     }
 

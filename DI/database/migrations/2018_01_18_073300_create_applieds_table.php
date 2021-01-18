@@ -20,6 +20,7 @@ class CreateAppliedsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedInteger('offer_id');
             $table->foreign('offer_id')->references('id')->on('offers');
+            $table->timestamps();
         });
     }
 
