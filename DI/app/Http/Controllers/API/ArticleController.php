@@ -5,7 +5,6 @@ namespace App\Http\Controllers\API;
 use App\article;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Validator;
 
 class ArticleController extends Controller
 {
@@ -15,10 +14,7 @@ class ArticleController extends Controller
         return response()->json(['success'=> true, 'data' => $articles->toArray()], $this->successStatus);
     }
     public function show($id) {
-        $article = article::find($id);
-        if(is_null($article)){
-            return response()->json(['error'=>  $validator->errors()], 401);
-        }
+        $article = article::where('cicle_id', '=', $id);
         return response()->json(['success'=> true, 'data' => $article->toArray()], $this->successStatus);
     }
 }
