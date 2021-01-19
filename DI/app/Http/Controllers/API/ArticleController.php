@@ -17,7 +17,7 @@ class ArticleController extends Controller
     }
 
     public function show($id) {
-        $article = article::find($id);
+        $article = article::where('cicle_ide', $id)->get();
         if(is_null($article)){
             return response()->json(['error'=>  $validator->errors()], 401);
         }
