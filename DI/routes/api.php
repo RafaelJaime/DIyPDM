@@ -21,6 +21,7 @@ Route::post('register', 'API\RegisterController@register');
 Route::post('login', 'API\RegisterController@login');
 // Devuelve articulos
 Route::resource('articles', 'API\ArticleController');
+Route::resource('offers', 'API\OfferController');
 // Debes estar logueado
 Route::middleware('auth:api')->group( function () {
     Route::resource('paco', 'API\ArticleController');
