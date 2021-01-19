@@ -17,6 +17,7 @@ class OfferController extends Controller
     }
 
     public function show($id) {
+        $offer = offer::where('cicle_id', $id)->get();
         $offer = offer::find($id);
         if(is_null($offer)){
             return response()->json(['error'=>  $validator->errors()], 401);
