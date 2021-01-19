@@ -25,7 +25,7 @@ class RegisterController extends Controller
         $user = \App\User::create($input);
         $success['token'] =  $user->createToken('MyApp')->accessToken;
         $success['name'] =  $user->name;
-        return response()->json(['success'=>$success], $this->successStatus);
+        return response()->json(['data'=>$success], $this->successStatus);
     }
 
     public function login() {
@@ -35,7 +35,7 @@ class RegisterController extends Controller
         // Creamos un token de acceso para ese usuario
         $success['token'] = $user->createToken('MyApp')->accessToken;
         // Y lo devolvemos en el objeto 'json'
-        return response()->json(['success' => $success], $this->successStatus);
+        return response()->json(['data' => $success], $this->successStatus);
         }
         else {
         return response()->json(['error' => 'No estás autorizado'], 401);
