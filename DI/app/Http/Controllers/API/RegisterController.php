@@ -19,7 +19,7 @@ class RegisterController extends Controller
             ]);
         if($validator->fails()) {
             return response()->json(['error'=>$validator->errors()], 401);
-        }
+        }//jsdlmgvlñsdfmlñg
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
         $user = \App\User::create($input);
