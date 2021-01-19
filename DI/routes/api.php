@@ -25,3 +25,4 @@ Route::get('/articles', 'API\ArticleController@index');
 Route::middleware('auth:api')->group( function () {
     Route::resource('paco', 'API\ArticleController');
 });
+
