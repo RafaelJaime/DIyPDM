@@ -1188,6 +1188,10 @@
                 "JWS",
                 "jwt"
             ],
+            "support": {
+                "issues": "https://github.com/lcobucci/jwt/issues",
+                "source": "https://github.com/lcobucci/jwt/tree/3.3.3"
+            },
             "funding": [
                 {
                     "url": "https://github.com/lcobucci",
@@ -6176,5 +6180,5 @@
         "php": ">=7.0.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }

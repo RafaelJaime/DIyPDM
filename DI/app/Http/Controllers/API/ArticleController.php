@@ -24,12 +24,23 @@ class ArticleController extends Controller
         return response()->json(['success'=> true, 'data' => $article->toArray()], $this->successStatus);
     }
 
-    public function store(Request $request) {
-        $input = $request->all();
-        $product = article::create($input);
-        return response()->json(['article' => $product->toArray()], $this->successStatus);
-    }
-       
+    // public function store(Request $request) {
+    //     $input = $request->all();
+    //     $article = article::create($input);
+    //     return response()->json(['article' => $article->toArray()], $this->successStatus);
+    // }
 
+    public function update(Request $request, Article $article) {
+        $input = $request->all();
+        $article->title = $input['title'];
+        $article->description = $input['description'];
+        $article->cicle_id = $input['cicle_id'];
+        $article->save();
+        return response()->json(['article' => $article->toArray()], $this->successStatus);
+    }
     
+    // public function destroy(Article $article) {
+    //     $article->delete();
+    //     return response()->json(['article' => $article->toArray()], $this->successStatus);
+    // }
 }
