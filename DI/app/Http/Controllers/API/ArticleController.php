@@ -29,7 +29,4 @@ class ArticleController extends Controller
         $product = article::create($input);
         return response()->json(['article' => $product->toArray()], $this->successStatus);
     }
-       
-
-    
 }
