@@ -26,4 +26,3 @@ Route::resource('offers', 'API\OfferController');
 Route::middleware('auth:api')->group( function () {
     Route::resource('paco', 'API\ArticleController');
 });
-
