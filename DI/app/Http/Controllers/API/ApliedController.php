@@ -14,8 +14,9 @@ class ApliedController extends Controller
         $applied = applied::create($input);
         return response()->json(['success' => true, 'data' => $applied->toArray()], $this->successStatus);
     }
-    public function destroy($id)
+    public function destroy(applied $applied)
     {
-        //
+        $applied->delete();
+        return response()->json(['success' => true, 'data' => $applied->toArray()], $this->successStatus);
     }
 }
