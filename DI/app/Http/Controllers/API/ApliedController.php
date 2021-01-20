@@ -5,6 +5,9 @@ namespace App\Http\Controllers\API;
 use App\applied;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\offer;
+use App\User;
+use Validator;
 
 class ApliedController extends Controller
 {
@@ -15,10 +18,10 @@ class ApliedController extends Controller
         $input = $request->all();
 
         $validator = Validator::make($input, [
-            'user_id' => 'required',
-            'offer_id' => 'required'
+            'user_id' => 'required|exists:User,id',
+            'offer_id' => 'required|exists:offer,id'
         ]);
-            
+
         if($validator->fails()){
             return response()->json(['error' => $validator->errors()], 401);
         }
