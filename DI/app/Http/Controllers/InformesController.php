@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\cicle;
+use App\User;
 use Illuminate\Http\Request;
 use PDF;
 class InformesController extends Controller
@@ -13,8 +14,8 @@ class InformesController extends Controller
     }
     public function general() 
     {
-        $ciclos = cicle::all();
-        $pdf = PDF::loadView('pdf.archivo1', compact('ciclos'));
+        $users = User::all();
+        $pdf = PDF::loadView('pdf.archivo2', compact('users'));
         // Para crear un pdf en el navegador usaremos la siguiente línea
         return $pdf->stream();
         // Para descargar un pdf en un archivo usaremos la siguiente línea
