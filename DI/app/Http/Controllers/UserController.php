@@ -10,7 +10,7 @@ class UserController extends Controller
     public function index(Request $request){
         $activate = $request -> get('filter');
 
-        $datos['users']=User::where('activate',$activate)->paginate(5);
+        $datos['users']=User::all();
 
         return view('users.index', $datos);
     }
