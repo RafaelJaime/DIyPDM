@@ -18,6 +18,11 @@ class ArticleController extends Controller
 
     public function show($id) {
         $article = article::where('cicle_id', $id)->get();
+
+        if (is_null($article)) {
+            return response()->json(['error' => $validator->errors()], 401);
+        }
+
         return response()->json(['success'=> true, 'data' => $article->toArray()], $this->successStatus);
     }
 
