@@ -10,4 +10,7 @@ class cicle extends Model
     protected $fillable = [
         'name', 
     ];
+    public function Users(){
+        return $this->hasMany(User::class);
+    }
 }
