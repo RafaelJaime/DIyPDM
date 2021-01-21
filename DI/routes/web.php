@@ -19,6 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('pdf', 'InformesController@index')->name('pdf');
-Route::get('pdfb', 'InformesController@general')->name('pdfa');
+Route::get('pdfb', 'InformesController@users')->name('pdfb');
 
 Route::get('/users', 'UserController@index');
