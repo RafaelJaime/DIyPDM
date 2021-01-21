@@ -15,7 +15,7 @@
             <tr>
                 <th>Name</th>
                 <th>Surname</th>
-                <th>Cicle_Id</th>
+                <th>Cicle</th>
                 <th>Email</th>
             </tr>
         </thead>
