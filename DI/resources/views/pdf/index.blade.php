@@ -1,8 +1,2 @@
-<form action="{{url('pdfa')}}" method="post">
-    <select name="ciclo" id="ciclo">
-    @foreach($ciclos as $ciclo)
-        <option value="{{$ciclo->id}}">{{$ciclo->name}}</option>
-    @endforeach
-    </select>
-    <input type="submit" value="Generar pdf">
-</form>
+<a href="{{url('pdf1')}}">Pulsa aquí para primer pdf</a>
+<a href="{{url('pdf2')}}">Pulsa aquí para segundo pdf</a>
