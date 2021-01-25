@@ -33,7 +33,7 @@ Página principal
                             <th>Email verified at</th>
 
                             <th>Type</th>
-                            <th>Num_Offers_Applied</th>
+                            <th>Offers</th>
 
                             <th>Actions</th>
                         </tr>
@@ -46,7 +46,7 @@ Página principal
 
                             <td>{{$user->name}}</td>
                             <td>{{$user->surname}}</td>
-                            <td>{{$user->cicle_id}}</td>
+                            <td>{{$user->find($user->id)->cicle->name}}</td>
 
                             <td>{{$user->email}}</td>
                             <td>{{$user->email_verified_at}}</td>
