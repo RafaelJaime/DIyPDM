@@ -16,9 +16,11 @@ class UserController extends Controller
     }
 
     public function update($id){
-        $valor =  user::where('id',$id);
-        if($valor = user::where('activate','=','0')){
-            $valor -> increment('activate');
+        $user =  user::where('id',$id)->first();
+        if($user->activate === 1){
+            $user -> decrement('activate');
+        } else {
+            $user -> increment('activate');
         }
         return redirect('users');
     }
