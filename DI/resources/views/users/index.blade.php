@@ -6,68 +6,72 @@ Página principal
 <h1 class="h3 mb-0 text-gray-800">"SalesIn" - Web and App for Job Offers Management</h1>
 @stop
 @section('content')
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box" style="border:1px solid #d2d6de;">
+            <div class="box-header" style="background-color:#f5f5f5;border-bottom:1px solid #d2d6de;">
+                <div class="form-group">
+                <label>Filter: </label>
+                <select id="activate" name="filter" class="form-control">
+                    <option value="">All</option>
+                    <option value="1">Activate Users</option>
+                    <option value="0">Non Activate Users</option>
+                </select>
+                </div>
+            </div>
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-light table-hover">
 
-<!-- Begin Page Content -->
-<div class="container-fluid">
-    <!-- Page Heading -->
-    
+                    <thead class="thead-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Surname</th>
+                            <th>Cicle_Id</th>
 
-    <!-- Content Row -->
-    <select id="activate" name="filter">activate
-        <option value="">All</option>
-        <option value="1">Activate Users</option>
-        <option value="0">Non Activate Users</option>
-    </select>
+                            <th>Email</th>
+                            <th>Email verified at</th>
 
-    <table class= "table table-light table-hover">
-        
-        <thead class="thead-light">
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Cicle_Id</th>
-                
-                <th>Email</th>
-                <th>Email verified at</th>
+                            <th>Type</th>
+                            <th>Num_Offers_Applied</th>
 
-                <th>Type</th>
-                <th>Num_Offers_Applied</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
 
-                <th>Actions</th>
-            </tr>
-        </thead>
+                    <tbody>
+                        @foreach($users as $user)
+                        <tr>
+                            <td>{{$loop->iteration}}</td>
 
-        <tbody>
-        @foreach($users as $user)
-            <tr>
-                <td>{{$loop->iteration}}</td>
+                            <td>{{$user->name}}</td>
+                            <td>{{$user->surname}}</td>
+                            <td>{{$user->cicle_id}}</td>
 
-                <td>{{$user->name}}</td>
-                <td>{{$user->surname}}</td>
-                <td>{{$user->cicle_id}}</td>
+                            <td>{{$user->email}}</td>
+                            <td>{{$user->email_verified_at}}</td>
 
-                <td>{{$user->email}}</td>
-                <td>{{$user->email_verified_at}}</td>
+                            <td>{{$user->type}}</td>
+                            <td>{{$user->num_offer_applied}}</td>
 
-                <td>{{$user->type}}</td>
-                <td>{{$user->num_offer_applied}}</td>
-
-                <td>
-                <form method="post" action="{{ url('/users/'.$user->id) }}" style="display:inline"> 
-                    {{csrf_field() }}
-                @if ($user->activate == 1)
-                    <button class="btn btn-danger" type="submit">Desactivate</button>
-                @else
-                    <button class="btn btn-success" type="submit">Activate</button>
-                @endif
-                </form>
-                </td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
-<a href="{{ url('/') }}">Go Back</a>
+                            <td>
+                                <form method="post" action="{{ url('/users/'.$user->id) }}" style="display:inline">
+                                    {{csrf_field() }}
+                                    @if ($user->activate == 1)
+                                    <button class="btn btn-danger" type="submit">Desactivate</button>
+                                    @else
+                                    <button class="btn btn-success" type="submit">Activate</button>
+                                    @endif
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 <!-- End of Main Content -->
 @stop
