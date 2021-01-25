@@ -54,11 +54,17 @@ Página principal
                 <td>{{$user->num_offer_applied}}</td>
 
                 <td>
-                
+                @if ($user->activate == 1)
+                <form method="post" action="{{ url('/users/'.$user->id) }}" style="display:inline"> 
+                    {{csrf_field() }}
+                    <button class="btn btn-danger" type="submit">Desactivate</button>
+                </form>
+                @else
                 <form method="post" action="{{ url('/users/'.$user->id) }}" style="display:inline"> 
                     {{csrf_field() }}
                     <button class="btn btn-success" type="submit">Activate</button>
                 </form>
+                @endif
                 </td>
             </tr>
         @endforeach
