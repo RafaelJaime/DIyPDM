@@ -70,9 +70,7 @@
                                         <a href="{{ url('profile') }}" class="btn btn-info btn-flat" style="width:120px">Mi perfil</a>
                                     </div>
                                     <div class="pull-right">
-                                        {!! Form::open(['url'=>'logout']) !!}
-                                        <button type="submit" class="btn btn-danger btn-flat" style="width:120px">Desloguearse</button>
-                                        {!! Form::close() !!}
+                                        
                                     </div>
                                 </li>
                                 @else
