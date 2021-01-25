@@ -40,7 +40,7 @@
         <div class="row" style="margin-top:30px;margin-bottom:20px;">
             <!-- /.col -->
             <div class="col-xs-4">
-                <button type="submit" class="btn btn-primary btn-block btn-flat">{{ trans('app.login_btn') }}</button>
+                <button type="submit" class="btn btn-primary btn-block btn-flat">Loguearse</button>
             </div>
             <!-- /.col -->
         </div>
