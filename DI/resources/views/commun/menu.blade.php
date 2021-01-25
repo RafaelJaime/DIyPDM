@@ -3,7 +3,7 @@
     <li class="header">MENU</li>
     
     <li>
-        <a href="{{ url('/usuario') }}">
+        <a href="{{ url('/users') }}">
 
             <i class="fa fa-copyright"></i>
             <span>Gestión de usuarios</span>

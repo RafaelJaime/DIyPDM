@@ -3,7 +3,7 @@
 Página principal
 @stop
 @section('page-header')
-<h1 class="h3 mb-0 text-gray-800">“SalesIn” - Web y App para Gestión de Ofertas de Empleo</h1>
+<h1 class="h3 mb-0 text-gray-800">"SalesIn" - Web and App for Job Offers Management</h1>
 @stop
 @section('content')
 
@@ -54,7 +54,7 @@ Página principal
         @endforeach
         </tbody>
     </table>
-
+<a href="{{ url('/') }}">Go Back</a>
 </div>
 <!-- End of Main Content -->
 @stop
