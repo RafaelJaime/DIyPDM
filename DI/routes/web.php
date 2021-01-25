@@ -31,3 +31,7 @@ Route::get('pdf1', 'InformesController@pagina1');
 Route::get('pdf2', 'InformesController@pagina2');
 Route::get('pdf2/{id}', 'InformesController@mostrarOfertas');
 Route::get('pdfb', 'InformesController@general')->name('pdfa');
+
+Route::get('/users', 'UserController@index');
+
+Route::post('/users/{id}', 'UserController@update');
