@@ -14,4 +14,9 @@ class UserController extends Controller
 
         return view('users.index', $datos);
     }
+
+    public function update($id){
+        $valor = user::where('id','=',$id)->update('activate', 1); 
+        return redirect('users')->with('Mensaje', 'User deleted');
+    }
 }

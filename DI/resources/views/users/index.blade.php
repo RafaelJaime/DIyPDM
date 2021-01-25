@@ -53,12 +53,13 @@ Página principal
                 <td>{{$user->type}}</td>
                 <td>{{$user->num_offer_applied}}</td>
 
-                <td>Activate | 
+                <td>
                 
-                <form method="post" action="{{ url('/users/'.$user.id) }}"> 
-                    {{csrf_field()}}
-                    {{method_field('DELETE')}}
-                </form></td>
+                <form method="post" action="{{ url('/users/'.$user->id) }}" style="display:inline"> 
+                    {{csrf_field() }}
+                    <button class="btn btn-success" type="submit">Activate</button>
+                </form>
+                </td>
             </tr>
         @endforeach
         </tbody>
