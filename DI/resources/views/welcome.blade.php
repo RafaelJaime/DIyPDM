@@ -9,10 +9,6 @@ Página principal
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
-    <!-- Page Heading -->
-    
-
-    <!-- Content Row -->
     <img src="{{asset('img/logo.jpg')}}" alt="Imagen dual" width="100%">
 
 </div>

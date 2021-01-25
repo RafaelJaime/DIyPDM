@@ -28,9 +28,9 @@
             <!-- Logo -->
             <a href="{{ url('/') }}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>FP</b>d</span>
+                <span class="logo-mini"><b>Sa</b>I</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>FP </b> dual</span>
+                <span class="logo-lg"><b>Sales</b>In</span>
             </a>
 
             <!-- Header Navbar -->
@@ -70,9 +70,17 @@
                                         <a href="{{ url('profile') }}" class="btn btn-info btn-flat" style="width:120px">Mi perfil</a>
                                     </div>
                                     <div class="pull-right">
-                                        {!! Form::open(['url'=>'logout']) !!}
-                                        <button type="submit" class="btn btn-danger btn-flat" style="width:120px">Desloguearse</button>
-                                        {!! Form::close() !!}
+                                        <a href="{{ route('logout') }}"
+                                        style="width:120px"
+                                            class="btn btn-danger btn-flat"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Desloguearse
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
                                     </div>
                                 </li>
                                 @else
