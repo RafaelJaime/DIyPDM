@@ -33,6 +33,8 @@ Página principal
 
                 <th>Type</th>
                 <th>Num_Offers_Applied</th>
+
+                <th>Actions</th>
             </tr>
         </thead>
 
@@ -50,6 +52,13 @@ Página principal
 
                 <td>{{$user->type}}</td>
                 <td>{{$user->num_offer_applied}}</td>
+
+                <td>Activate | 
+                
+                <form method="post" action="{{ url('/users/'.$user.id) }}"> 
+                    {{csrf_field()}}
+                    {{method_field('DELETE')}}
+                </form></td>
             </tr>
         @endforeach
         </tbody>

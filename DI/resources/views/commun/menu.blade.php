@@ -6,28 +6,28 @@
         <a href="{{ url('/users') }}">
 
             <i class="fa fa-copyright"></i>
-            <span>Gestión de usuarios</span>
+            <span>User Management</span>
         </a>
     </li>
     <li>
         <a href="{{url('empresa')}}">
 
             <i class="fa fa-building"></i>
-            <span>Envío de email</span>
+            <span>Sending email</span>
         </a>
     </li>
     <li>
         <a href="{{url('ciclo')}}">
 
             <i class="fa fa-circle"></i>
-            <span>Generación  de  informes  en  formato  pdf</span>
+            <span>Report generation in pdf format</span>
         </a>
     </li>
     <li>
         <a href="{{ url('/fichas') }}">
 
             <i class="fa fa-file"></i>
-            <span>Pruebas  unitarias</span>
+            <span>Unit tests</span>
         </a>
     </li>
     @endLogged()
