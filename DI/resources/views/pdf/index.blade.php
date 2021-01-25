@@ -9,7 +9,7 @@ Página principal
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
-<a href="{{url('pdf1')}}">Pulsa aquí para primer pdf</a>
+<a href="{{url('Offers')}}">Pulsa aquí para primer pdf</a>
 <a href="{{url('pdf2')}}">Pulsa aquí para segundo pdf</a>
 
 </div>

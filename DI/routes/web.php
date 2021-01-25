@@ -27,7 +27,11 @@ Route::get('/users', 'UserController@index');
 // Tema pedfs
 Route::get('pdf', 'InformesController@index')->name('pdf');
 Route::get('pdfb', 'InformesController@users')->name('pdfb');
-Route::get('pdf1', 'InformesController@pagina1');
+
+// Ofertas
+Route::get('Offers', 'InformesController@Offers');
+Route::get('pdfOffer', 'InformesController@GeneratePDFOffers');
+
 Route::get('pdf2', 'InformesController@pagina2');
 Route::get('pdf2/{id}', 'InformesController@mostrarOfertas');
 Route::get('pdfb', 'InformesController@general')->name('pdfa');
