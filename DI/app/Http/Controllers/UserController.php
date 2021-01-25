@@ -23,5 +23,5 @@ class UserController extends Controller
             $user -> increment('activate');
         }
         return redirect('users');
-    }
+}
 }
