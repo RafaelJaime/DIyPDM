@@ -11,7 +11,7 @@ Página principal
         <div class="box" style="border:1px solid #d2d6de;">
             <div class="box-header" style="background-color:#f5f5f5;border-bottom:1px solid #d2d6de;">
                 <div class="form-group">
-                <label>Filter: </label>
+                <label>What users do you want to see? </label>
                 <select id="activate" name="filter" class="form-control">
                     <option value="">All</option>
                     <option value="1">Activate Users</option>
