@@ -27,6 +27,12 @@ class InformesController extends Controller
         return redirect ('/');
     }
     public function pagina2() {
-        return redirect ('/');
+        $ciclos = cicle::all();
+        $ofertas = offer::all();
+        return view('pdf.page2', compact('ciclos', 'ofertas'));
+    }
+    public function mostrarOfertas($id) {
+        $ofertas = offer::where('cicle_id', $id)->get();
+        return view('pdf.page21', compact('ofertas'));
     }
 }
