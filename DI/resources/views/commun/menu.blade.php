@@ -17,7 +17,7 @@
         </a>
     </li>
     <li>
-        <a href="{{url('ciclo')}}">
+        <a href="{{url('pdf')}}">
 
             <i class="fa fa-file-pdf-o"></i>
             <span>Report generation in pdf format</span>
