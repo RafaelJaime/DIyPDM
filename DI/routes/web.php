@@ -15,9 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Rutas login
 Auth::routes();
 
+// Tema home
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Tema usuarios
+Route::get('/users', 'UserController@index');
+// Tema correos electrónicos
+// Tema pedfs
 Route::get('pdf', 'InformesController@index')->name('pdf');
 Route::get('pdfb', 'InformesController@users')->name('pdfb');
 Route::get('pdf1', 'InformesController@pagina1');

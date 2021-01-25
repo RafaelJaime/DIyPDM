@@ -5,21 +5,21 @@
     <li>
         <a href="{{ url('/users') }}">
 
-            <i class="fa fa-copyright"></i>
+            <i class="fa fa-user"></i>
             <span>User Management</span>
         </a>
     </li>
     <li>
         <a href="{{url('empresa')}}">
 
-            <i class="fa fa-building"></i>
+            <i class="fa fa-envelope"></i>
             <span>Sending email</span>
         </a>
     </li>
     <li>
         <a href="{{url('ciclo')}}">
 
-            <i class="fa fa-circle"></i>
+            <i class="fa fa-file-pdf-o"></i>
             <span>Report generation in pdf format</span>
         </a>
     </li>
