@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('pdf', 'InformesController@index')->name('pdf');
+Route::get('pdfb', 'InformesController@users')->name('pdfb');
 Route::get('pdf1', 'InformesController@pagina1');
 Route::get('pdf2', 'InformesController@pagina2');
 Route::get('pdf2/{id}', 'InformesController@mostrarOfertas');
