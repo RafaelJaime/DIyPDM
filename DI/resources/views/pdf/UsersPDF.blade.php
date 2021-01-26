@@ -9,10 +9,11 @@
 
 <body>
     <h1>SalesIn</h1>
-    <h2>Informe sobre los usuarios</h2>
+    <h2>Users By Offers Reports</h2>
     <table border="1" class="table table-light table-hover default">
         <thead class="thead-light">
-            <tr>
+            <tr> 
+                <th>ID</th>  
                 <th>Name</th>
                 <th>Surname</th>
                 <th>Cicle</th>
@@ -23,9 +24,10 @@
         <tbody>
             @foreach($users as $user)
             <tr>
+                <td>{{$user->id}}</td>
                 <td>{{$user->name}}</td>
                 <td>{{$user->surname}}</td>
-                <td>{{$user->find($user->id)->cicle->name}}</td>
+                <td>{{$user->cicle_id}}</td>
                 <td>{{$user->email}}</td>
             </tr>
             @endforeach

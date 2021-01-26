@@ -9,13 +9,13 @@ Página principal
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
-<form action="{{url('pdfb')}}" method="post">
+<form action="{{url('pdfUser')}}" method="post">
     <select name="offer" id="offer">
     @foreach($offers as $offer)
-        <option value="{{$offer->id}}">{{$offer->tittle}}</option>
+        <option value="{{$offer->id}}">{{$offer->id}} | {{$offer->headline}}</option>
     @endforeach
     </select>
-    <input type="submit" value="Generar pdf">
+    <a href="{{url('pdfUser')}}">Generate pdf</a>
 </form>
 
 </div>

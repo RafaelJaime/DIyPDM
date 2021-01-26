@@ -9,8 +9,8 @@ Página principal
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
-<a href="{{url('Offers')}}">Pulsa aquí para primer pdf</a>
-<a href="{{url('pdf2')}}">Pulsa aquí para segundo pdf</a>
+<a href="{{url('OffersByCycle')}}">Pulsa aquí para primer pdf</a>
+<a href="{{url('UsersByOffer')}}">Pulsa aquí para segundo pdf</a>
 
 </div>
 <!-- End of Main Content -->
