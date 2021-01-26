@@ -8,8 +8,13 @@ use App\User;
 class UserController extends Controller
 {
     public function index(Request $request){
-        $datos['users']=User::all();
 
+        $filter=$request->get('filter');
+        if($filter === "All"){
+            $datos['users']=User::all();
+        }else{
+            $datos['users']=User::where('activate','=',$filter);
+        }
         return view('users.index', $datos);
     }
 

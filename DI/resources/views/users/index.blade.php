@@ -13,17 +13,19 @@ Página principal
                 <div class="form-group">
                 <div class="col-md-6">
                 <label>What users do you want to see? </label>
-                <select id="activate" name="filter" class="form-control">
-                    <option value="">All</option>
+                <form>
+                <select id="filter" name="filter" class="form-control">
+                    <option value="All">All</option>
                     <option value="1">Activate Users</option>
                     <option value="0">Non Activate Users</option>
                 </select>
-                <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                
                 </div>
                 <div class="col-md-6">
-                    AQUI BOTON
+                    <br>
+                    <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
                 </div>
+                </form>
                 
                 </div>
             </div>
