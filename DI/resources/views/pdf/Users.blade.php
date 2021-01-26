@@ -15,7 +15,7 @@ Página principal
         <option value="{{$offer->id}}">{{$offer->id}} | {{$offer->headline}}</option>
     @endforeach
     </select>
-    <a href="{{url('pdfUser')}}">Generate pdf</a>
+    <button type="submit">Generate pdf</button>
 </form>
 
 </div>

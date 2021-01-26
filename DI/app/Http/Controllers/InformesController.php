@@ -55,13 +55,15 @@ class InformesController extends Controller
         return view('pdf.Users', compact('users','offers','applieds','cycles'));
     }
 
-    public function GeneratePDFUsers() {
-        $users = cicle::all();
+    public function GeneratePDFUsers(Request $request) {
+        $filter=$request->get('offer');
+        dd($filter);
+        $users = User::all();
         $offers = offer::all();
         $applieds = applied::all();
         $cycles = cicle::all();
         $pdf = PDF::loadView('pdf.UsersPDF', compact('users','offers','applieds','cycles'));
-        // Para crear un pdf en el navegador usaremos la siguiente línea
+
         return $pdf->stream();
         return $pdf->download('Users.pdf');
     }
