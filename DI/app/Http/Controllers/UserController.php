@@ -13,7 +13,7 @@ class UserController extends Controller
         if($filter === "All"){
             $datos['users']=User::all();
         }else{
-            $datos['users']=User::where('activate','=',$filter);
+            $datos['users']=User::where('activate','=',$filter)->get();
         }
         return view('users.index', $datos);
     }

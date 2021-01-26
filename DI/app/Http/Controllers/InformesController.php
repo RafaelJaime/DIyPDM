@@ -16,27 +16,8 @@ class InformesController extends Controller
         $ofertas = offer::all();
         return view('pdf.index', compact('ciclos', 'ofertas'));
     }
-    public function users() 
-    {
-        $users = User::all();
-        $pdf = PDF::loadView('pdf.archivo2', compact('users'));
-        // Para crear un pdf en el navegador usaremos la siguiente línea
-        return $pdf->stream();
-        // Para descargar un pdf en un archivo usaremos la siguiente línea
-        return $pdf->download('prueba.pdf');
-    }
-
-    public function showOffersByCycle($id)
-    {
-        $users = User::all();
-        $pdf = PDF::loadView('pdf.archivo2', compact('users'));
-        // Para crear un pdf en el navegador usaremos la siguiente línea
-        return $pdf->stream();
-        // Para descargar un pdf en un archivo usaremos la siguiente línea
-        return $pdf->download('prueba.pdf');
-    }
     
-    //--------------------------- Offers ---------------------------
+    //--------------------------- Offers by Cycle ---------------------------
     public function Offers() {
         $users = cicle::all();
         $offers = offer::all();
@@ -62,13 +43,28 @@ class InformesController extends Controller
     }
     //--------------------------- End Offers ---------------------------
 
-    public function pagina2() {
-        $ciclos = cicle::all();
-        $ofertas = offer::all();
-        return view('pdf.page2', compact('ciclos', 'ofertas'));
+
+
+    //--------------------------- Users by Offers ---------------------------
+    public function users() 
+    {
+        $users = User::all();
+        $offers = offer::all();
+        $applieds = applied::all();
+        $cycles = cicle::all();
+        return view('pdf.Users', compact('users','offers','applieds','cycles'));
     }
-    public function mostrarOfertas($id) {
-        $ofertas = offer::where('cicle_id', $id)->get();
-        return view('pdf.page21', compact('ofertas'));
+
+    public function GeneratePDFUsers() {
+        $users = cicle::all();
+        $offers = offer::all();
+        $applieds = applied::all();
+        $cycles = cicle::all();
+        $pdf = PDF::loadView('pdf.UsersPDF', compact('users','offers','applieds','cycles'));
+        // Para crear un pdf en el navegador usaremos la siguiente línea
+        return $pdf->stream();
+        return $pdf->download('Users.pdf');
     }
+
+    //--------------------------- End Users by Offers ---------------------------
 }
