@@ -33,7 +33,10 @@ class HomeController extends Controller
             'subject' => "Mensaje importante",
             'content' => "Este es un correo de prueba",
         ];
-        Mail::to($data['emailto'])->send('email/vistaEmail');
+        Mail::send('email/vistaEmail', $data, function ($message) use ($data) {
+            $message->from('chimpancesjaimecamero@gmail.com');
+            $message->to($data['emailto'])->subject($data['subject']);
+        });
         return redirect('/');
     }
 }
