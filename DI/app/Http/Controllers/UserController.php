@@ -10,10 +10,10 @@ class UserController extends Controller
     public function index(Request $request){
 
         $filter=$request->get('filter');
-        if($filter === "All"){
+        if($filter === '1' || $filter === '0'){
+            $datos['users']=User::where('activate','=',$filter)->get();
+        } else {
             $datos['users']=User::all();
-        }else{
-            $datos['users']=User::where('activate','=',$filter);
         }
         return view('users.index', $datos);
     }
