@@ -30,4 +30,7 @@ class User extends Authenticatable
     public function cicle(){
         return $this->belongsTo(cicle::class, 'cicle_id');
     }
+    public function Applied(){
+        return $this->hasMany(applied::class);
+    }
 }
