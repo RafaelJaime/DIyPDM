@@ -6,6 +6,7 @@ use App\applied;
 use App\cicle;
 use App\offer;
 use App\User;
+use DateTime;
 use Illuminate\Http\Request;
 use PDF;
 class InformesController extends Controller
@@ -40,7 +41,14 @@ class InformesController extends Controller
         $users = cicle::all();
         $offers = offer::all();
         $applieds = applied::all();
-        return view('pdf.Offers', compact('users','offers','applieds'));
+        $years = offer::select('date_max')->get();
+
+        return view('pdf.Offers', compact('users','offers','applieds','years'));
+    }
+
+    public function getYear($pdate) {
+        $date = DateTime::createFromFormat("Y-m-d", $pdate);
+        return $date->format("Y");
     }
 
     public function GeneratePDFOffers() {
