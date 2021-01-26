@@ -10,8 +10,7 @@
         </a>
     </li>
     <li>
-        <a href="{{ url('/enviarEmail') }}">
-
+        <a href="{{ url('enviarEmail') }}">
             <i class="fa fa-envelope"></i>
             <span>Send a email</span>
         </a>
