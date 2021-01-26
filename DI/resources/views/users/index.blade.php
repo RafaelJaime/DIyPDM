@@ -37,7 +37,7 @@ Página principal
                             <th>ID</th>
                             <th>Name</th>
                             <th>Surname</th>
-                            <th>Cicle_Id</th>
+                            <th>Cicle</th>
 
                             <th>Email</th>
                             <th>Email verified at</th>
