@@ -57,12 +57,10 @@ class InformesController extends Controller
 
     public function GeneratePDFUsers(Request $request) {
         $filter=$request->get('offer');
-        dd($filter);
-        $users = User::all();
-        $offers = offer::all();
-        $applieds = applied::all();
+        $applieds = applied::where('offer_id','=',$filter)->with('user')->get();
+        $users = User::where('id','=',$applieds[0]->user->id);
         $cycles = cicle::all();
-        $pdf = PDF::loadView('pdf.UsersPDF', compact('users','offers','applieds','cycles'));
+        $pdf = PDF::loadView('pdf.UsersPDF', compact('users','applieds','cycles'));
 
         return $pdf->stream();
         return $pdf->download('Users.pdf');

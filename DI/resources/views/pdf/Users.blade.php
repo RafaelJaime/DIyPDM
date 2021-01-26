@@ -9,7 +9,7 @@ Página principal
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
-<form action="{{url('pdfUser')}}" method="post">
+<form action="{{url('pdfUser')}}" method="get">
     <select name="offer" id="offer">
     @foreach($offers as $offer)
         <option value="{{$offer->id}}">{{$offer->id}} | {{$offer->headline}}</option>

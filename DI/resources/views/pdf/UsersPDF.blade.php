@@ -22,13 +22,13 @@
         </thead>
 
         <tbody>
-            @foreach($users as $user)
+            @foreach($applieds as $applied)
             <tr>
-                <td>{{$user->id}}</td>
-                <td>{{$user->name}}</td>
-                <td>{{$user->surname}}</td>
-                <td>{{$user->find($user->id)->cicle->name}}</td>
-                <td>{{$user->email}}</td>
+                <td>{{$applied->user->id}}</td>
+                <td>{{$applied->user->name}}</td>
+                <td>{{$applied->user->surname}}</td>
+                <td>{{$applied->user->find($applied->id)->cicle->name}}</td>
+                <td>{{$applied->user->email}}</td>
             </tr>
             @endforeach
         </tbody>

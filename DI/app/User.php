@@ -33,4 +33,5 @@ class User extends Authenticatable
     public function Applied(){
         return $this->hasMany(applied::class);
     }
+    
 }

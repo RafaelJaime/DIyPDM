@@ -9,13 +9,11 @@ Página principal
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
-<form action="{{url('pdfOffer')}}" method="post">
+<form action="{{url('pdfOffer')}}" method="get">
     <select name="year" id="year">
-    @foreach($years as $year)
-        <option value="{{$year->date_max}}">{{$year->date_max}}</option>
-    @endforeach
+        <option value=""></option>
     </select>
-    <a href="{{url('pdfOffer')}}">Generate pdf</a>
+    <button type="submit">Generate pdf</button>
 </form>
 
 </div>
