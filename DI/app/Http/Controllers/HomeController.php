@@ -29,14 +29,11 @@ class HomeController extends Controller
     public function enviarEmail()
     {
         $data = [
-            'emailto' => "chimpancesjaimecamero@gmail.com",
+            'emailto' => "kocetapedoretaplaystore@gmail.com",
             'subject' => "Mensaje importante",
             'content' => "Este es un correo de prueba",
         ];
-        Mail::send('email/vistaEmail', $data, function ($message) use ($data) {
-            $message->from('micorreo@gmail.com');
-            $message->to($data['emailto'])->subject($data['subject']);
-        });
-        return back();
+        Mail::to($data['emailto'])->send('email/vistaEmail');
+        return redirect('/');
     }
 }
