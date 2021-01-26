@@ -10,10 +10,10 @@
         </a>
     </li>
     <li>
-        <a href="{{url('empresa')}}">
+        <a href="{{ route('enviarEmail') }}">
 
             <i class="fa fa-envelope"></i>
-            <span>Sending email</span>
+            <span>Send a email</span>
         </a>
     </li>
     <li>

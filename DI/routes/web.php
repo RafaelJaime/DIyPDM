@@ -23,7 +23,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Tema usuarios
 Route::get('/users', 'UserController@index');
+Route::get('/users', 'UserController@index');
+Route::post('/users/{id}', 'UserController@update');
 // Tema correos electrónicos
+Route::post('/enviarEmail', 'HomeController@enviarEmail')->name('enviarEmail');
 // Tema pedfs
 Route::get('pdf', 'InformesController@index')->name('pdf');
 Route::get('pdfb', 'InformesController@users')->name('pdfb');
@@ -31,7 +34,3 @@ Route::get('pdf1', 'InformesController@pagina1');
 Route::get('pdf2', 'InformesController@pagina2');
 Route::get('pdf2/{id}', 'InformesController@mostrarOfertas');
 Route::get('pdfb', 'InformesController@general')->name('pdfa');
-
-Route::get('/users', 'UserController@index');
-
-Route::post('/users/{id}', 'UserController@update');
