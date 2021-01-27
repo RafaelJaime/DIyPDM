@@ -24,20 +24,22 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 // Tema home
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Tema usuarios
-Route::get('/users', 'UserController@index');
-Route::get('/users', 'UserController@index');
-Route::post('/users/{id}', 'UserController@update');
-// Tema correos electrónicos
-Route::post('/enviarEmail', 'HomeController@enviarEmail')->name('enviarEmail');
-// Tema pdfs
-Route::get('pdf', 'InformesController@index')->name('pdf');
-Route::get('pdfb', 'InformesController@users')->name('pdfb');
+Route::group(['middleware' => 'auth'], function () {
+    // Tema usuarios
+    Route::get('/users', 'UserController@index');
+    Route::get('/users', 'UserController@index');
+    Route::post('/users/{id}', 'UserController@update');
+    // Tema correos electrónicos
+    Route::post('/enviarEmail', 'HomeController@enviarEmail')->name('enviarEmail');
+    // Tema pdfs
+    Route::get('pdf', 'InformesController@index')->name('pdf');
+    Route::get('pdfb', 'InformesController@users')->name('pdfb');
 
-// Ofertas por curso
-Route::get('OffersByCycle', 'InformesController@Offers');
-Route::get('pdfOffer', 'InformesController@GeneratePDFOffers');
+    // Ofertas por curso
+    Route::get('OffersByCycle', 'InformesController@Offers');
+    Route::get('pdfOffer', 'InformesController@GeneratePDFOffers');
 
-// Alumnos por ofertas
-Route::get('UsersByOffer', 'InformesController@Users');
-Route::get('pdfUser', 'InformesController@GeneratePDFUsers');
+    // Alumnos por ofertas
+    Route::get('UsersByOffer', 'InformesController@Users');
+    Route::get('pdfUser', 'InformesController@GeneratePDFUsers');
+});
