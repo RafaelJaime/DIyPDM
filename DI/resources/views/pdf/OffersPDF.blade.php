@@ -9,7 +9,7 @@
 
 <body>
     <h1>SalesIn</h1>
-    <h2>Offers Reports</h2>
+    <h2>Offers By Cycle</h2>
     <table border="1" class="table table-light table-hover default">
         <thead class="thead-light">
             <tr>
