@@ -10,7 +10,7 @@ Página principal
 <!-- Begin Page Content -->
 <div class="container-fluid">
 <form action="{{url('pdfOffer')}}" method="get">
-    <select name="year" id="year">
+    <select name="year" id="year" class="form-control">
         <option value="2011">2011</option>
         <option value="2012">2012</option>
         <option value="2013">2013</option>
@@ -23,7 +23,7 @@ Página principal
         <option value="2020">2020</option>
         <option value="2021">2021</option>
     </select>
-    <button type="submit">Generate pdf</button>
+    <button type="submit" class="btn btn-info btn-flat">Generate pdf</button>
 </form>
 
 </div>
