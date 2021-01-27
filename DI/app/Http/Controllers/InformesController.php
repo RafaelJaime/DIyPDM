@@ -9,6 +9,8 @@ use App\User;
 use DateTime;
 use Illuminate\Http\Request;
 use PDF;
+use Psy\Formatter\Formatter;
+
 class InformesController extends Controller
 {
     public function index() {
@@ -24,7 +26,9 @@ class InformesController extends Controller
         $applieds = applied::all();
         $years = offer::select('date_max')->get();
 
-        return view('pdf.Offers', compact('users','offers','applieds','years'));
+        $now = date("Y");
+
+        return view('pdf.Offers', compact('users','offers','applieds','years','now'));
     }
 
     public function GeneratePDFOffers(Request $request) {
