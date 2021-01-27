@@ -9,18 +9,19 @@ use App\User;
 use DateTime;
 use Illuminate\Http\Request;
 use PDF;
-use Psy\Formatter\Formatter;
 
 class InformesController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $ciclos = cicle::all();
         $ofertas = offer::all();
         return view('pdf.index', compact('ciclos', 'ofertas'));
     }
-    
+
     //--------------------------- Offers by Cycle ---------------------------
-    public function Offers() {
+    public function Offers()
+    {
         $users = cicle::all();
         $offers = offer::all();
         $applieds = applied::all();
@@ -31,12 +32,12 @@ class InformesController extends Controller
         return view('pdf.Offers', compact('users','offers','applieds','years','now'));
     }
 
-    public function GeneratePDFOffers(Request $request) {
-        $year=$request->get('year');
+    public function GeneratePDFOffers(Request $request)
+    {
+        $year = $request->get('year');
         $users = cicle::all();
-        $offers = offer::whereBetween('date_max',[$year.'-09-01',($year+1).'-08-01'])->get();
-        $pdf = PDF::loadView('pdf.OffersPDF', compact('users','offers'));
-        // Para crear un pdf en el navegador usaremos la siguiente línea
+        $offers = offer::whereBetween('date_max', [$year . '-09-01', ($year + 1) . '-08-01'])->get();
+        $pdf = PDF::loadView('pdf.OffersPDF', compact('users', 'offers'));
         return $pdf->stream();
         return $pdf->download('offers.pdf');
     }
@@ -45,22 +46,22 @@ class InformesController extends Controller
 
 
     //--------------------------- Users by Offers ---------------------------
-    public function users() 
+    public function users()
     {
         $users = User::all();
         $offers = offer::all();
         $applieds = applied::all();
         $cycles = cicle::all();
-        return view('pdf.Users', compact('users','offers','applieds','cycles'));
+        return view('pdf.Users', compact('users', 'offers', 'applieds', 'cycles'));
     }
 
-    public function GeneratePDFUsers(Request $request) {
-        $filter=$request->get('offer');
-        $applieds = applied::where('offer_id','=',$filter)->with('user')->get();
-        $users = User::where('id','=',$applieds[0]->user->id);
+    public function GeneratePDFUsers(Request $request)
+    {
+        $filter = $request->get('offer');
+        $applieds = applied::where('offer_id', '=', $filter)->with('user')->get();
+        $users = User::where('id', '=', $applieds[0]->user->id);
         $cycles = cicle::all();
-        $pdf = PDF::loadView('pdf.UsersPDF', compact('users','applieds','cycles'));
-
+        $pdf = PDF::loadView('pdf.UsersPDF', compact('users', 'applieds', 'cycles'));
         return $pdf->stream();
         return $pdf->download('Users.pdf');
     }
