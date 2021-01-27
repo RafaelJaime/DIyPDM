@@ -10,12 +10,12 @@ Página principal
 <!-- Begin Page Content -->
 <div class="container-fluid">
 <form action="{{url('pdfUser')}}" method="get">
-    <select name="offer" id="offer">
+    <select name="offer" id="offer" class="form-control">
     @foreach($offers as $offer)
         <option value="{{$offer->id}}">{{$offer->id}} | {{$offer->headline}}</option>
     @endforeach
     </select>
-    <button type="submit">Generate pdf</button>
+    <button type="submit" class="btn btn-info btn-flat">Generate pdf</button>
 </form>
 
 </div>
