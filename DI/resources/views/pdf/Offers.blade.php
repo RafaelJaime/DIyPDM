@@ -12,10 +12,10 @@ Página principal
 <div class="box-header" style="background-color:#f5f5f5;border-bottom:1px solid #d2d6de;">
     <div class="form-group">
         <div class="col-md-6">
-        <label>Select an offer</label>
+        <label>Select a year</label>
         <form action="{{url('pdfOffer')}}" method="get">
                 <select name="year" id="year" class="form-control">
-                @for ($i = 10; $i > 0; $i--)
+                @for ($i = 10; $i >= 0; $i--)
                     <option>{{$now-$i}}</option>
                 @endfor
                 </select>

@@ -32,7 +32,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/users', 'UserController@index');
     Route::post('/users/{id}', 'UserController@update');
     // Tema correos electrónicos
-    Route::post('/enviarEmail', 'HomeController@enviarEmail')->name('enviarEmail');
+    Route::get('/enviarEmail', 'HomeController@enviarEmail')->name('enviarEmail');
     // Tema pdfs
     Route::get('pdf', 'InformesController@index')->name('pdf');
     Route::get('pdfb', 'InformesController@users')->name('pdfb');
