@@ -9,14 +9,18 @@ Página principal
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
-<form action="{{url('pdfUser')}}" method="get">
-    <select name="offer" id="offer" class="form-control">
-    @foreach($offers as $offer)
-        <option value="{{$offer->id}}">{{$offer->id}} | {{$offer->headline}}</option>
-    @endforeach
-    </select>
+    <div class="form-group">
+        <div class="col-md-3">
+            <form action="{{url('pdfUser')}}" method="get">
+                <select name="offer" id="offer" class="form-control">
+                    @foreach($offers as $offer)
+                    <option value="{{$offer->id}}">{{$offer->id}} | {{$offer->headline}}</option>
+                    @endforeach
+                </select>
+        </div>
+    </div>
     <button type="submit" class="btn btn-info btn-flat">Generate pdf</button>
-</form>
+    </form>
 
 </div>
 <!-- End of Main Content -->
