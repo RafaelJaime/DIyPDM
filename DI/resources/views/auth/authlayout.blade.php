@@ -22,7 +22,7 @@
 <body class="hold-transition login-page">
 	<div class="login-box">
 		<div class="login-logo">
-			<a href="{{ url('/') }}"><b>Laravel</b> 5.5</a>
+			<a href="{{ url('/') }}"><b>Sales</b>In</a>
 		</div>
 		<!-- /.login-logo -->
 		<div class="login-box-body">

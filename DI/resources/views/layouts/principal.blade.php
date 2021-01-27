@@ -67,7 +67,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer" style="height:75px;padding-top:20px;">
                                     <div class="pull-left">
-                                        <a href="{{ url('profile') }}" class="btn btn-info btn-flat" style="width:120px">Mi perfil</a>
+                                        <a href="{{ url('/') }}" class="btn btn-info btn-flat" style="width:120px">Mi página principal</a>
                                     </div>
                                     <div class="pull-right">
                                         <a href="{{ route('logout') }}"

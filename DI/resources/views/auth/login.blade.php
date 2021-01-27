@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <p class="login-box-msg"><b>Please Sign in</b></p>
+    <p class="login-box-msg"><b>Please Admin Sign in</b></p>
 
     @if (Session::has('warning'))
         <div class="alert alert-danger" role="alert">
@@ -47,14 +47,5 @@
 
 
     </form>
-
-    <div class="row">
-        <div class="col-xs-6">
-            <a href="{{ url('/register') }}">Register</a>
-        </div><!-- /.col -->
-        <div class="col-xs-6">
-            <a href="{{ url('/password/reset') }}" class="text-right pull-right">Forgot Password</a>
-        </div><!-- /.col -->
-    </div>
 
 @endsection
