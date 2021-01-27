@@ -19,14 +19,7 @@
         <a href="{{url('pdf')}}">
 
             <i class="fa fa-file-pdf-o"></i>
-            <span>Report generation in pdf format</span>
-        </a>
-    </li>
-    <li>
-        <a href="{{ url('/fichas') }}">
-
-            <i class="fa fa-file"></i>
-            <span>Unit tests</span>
+            <span>Report generation</span>
         </a>
     </li>
     @endLogged()
