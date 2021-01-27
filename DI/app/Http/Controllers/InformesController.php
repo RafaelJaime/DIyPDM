@@ -27,16 +27,11 @@ class InformesController extends Controller
         return view('pdf.Offers', compact('users','offers','applieds','years'));
     }
 
-    public function getYear($pdate) {
-        $date = DateTime::createFromFormat("Y-m-d", $pdate);
-        return $date->format("Y");
-    }
-
-    public function GeneratePDFOffers() {
+    public function GeneratePDFOffers(Request $request) {
+        $year=$request->get('year');
         $users = cicle::all();
-        $offers = offer::all();
-        $applieds = applied::all();
-        $pdf = PDF::loadView('pdf.OffersPDF', compact('users','offers','applieds'));
+        $offers = offer::whereBetween('date_max',[$year.'-09-01',($year+1).'-08-01'])->get();
+        $pdf = PDF::loadView('pdf.OffersPDF', compact('users','offers'));
         // Para crear un pdf en el navegador usaremos la siguiente línea
         return $pdf->stream();
         return $pdf->download('offers.pdf');
