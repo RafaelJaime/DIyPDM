@@ -5,18 +5,13 @@
     <ion-label class="ion-text-center">Requested offers {{size}}</ion-label>
   </ion-item>
 
-  <ion-list>
+    <ion-select [(ngModel)]="filter" (ionChange)="onChange($event)">
+      <ion-select-option *ngFor="let offer of offers" value="{{offer.cicle_id}}" name="browsers">{{offer.cicle_name}}</ion-select-option>
+    </ion-select>
 
-  <ion-segment color="primary" [(ngModel)]="type" scrollable>
-    <ion-segment-button value="deposit" (click)="loadOffers()" checked>
-      <ion-label>All</ion-label>
-      <ion-icon name="albums"></ion-icon>
-    </ion-segment-button>
-    <ion-segment-button *ngFor="let offer of offers" (click)="loadOffersById(offer.id)">
-      <ion-label>{{offer.cicle_id}}</ion-label>
-      <ion-icon name="browsers"></ion-icon>
-    </ion-segment-button>
-  </ion-segment>
+    <ion-button expand="block" shape="round" (click)="loadOffersById(offer.id)">Search</ion-button>
+
+  <ion-list>
 
    <ion-card *ngFor="let offer of offers">
     <ion-card-header>
