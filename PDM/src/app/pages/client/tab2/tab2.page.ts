@@ -56,7 +56,7 @@ export class Tab2Page {
           this.offers = [];
           for (let i = 0; i < res.data.length; i++) {
             if(res.data[i].cicle_id == id){
-              this.offers += res.data[i].get();
+              this.offers += res.data[i];
               console.log(this.offers);
             }
             
