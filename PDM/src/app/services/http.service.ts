@@ -72,6 +72,18 @@ export class HttpService {
       });
     });
   }
+  getUsers() {
+    return new Promise(resolve => { 
+      this.http.get(this.url + 'users', 
+      {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + this.token.data.token),
+      }).subscribe(data => {
+        resolve(data);
+      }, err => { 
+        console.log(err); 
+      }); 
+    });
+  }
 
   /**
    * post
