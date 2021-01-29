@@ -21,6 +21,9 @@ export class HttpService {
   setId(id:number){
     this.id=id;
   }
+  getId(){
+    return this.id;
+  }
 
   setOffers(offers:any){
     this.offers=offers;
@@ -29,10 +32,7 @@ export class HttpService {
   getOffers(){
     return this.offers;
   }
-
-  getId(){
-    return this.id;
-  }
+  
 
   /**
    * Get

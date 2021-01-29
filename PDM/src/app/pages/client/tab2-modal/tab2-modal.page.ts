@@ -19,6 +19,7 @@ export class Tab2ModalPage implements OnInit {
 
   constructor(public modalController: ModalController,private http: HttpService) { 
     this.loadOffers();
+    this.setId();
   }
 
   ngOnInit() {
@@ -28,17 +29,12 @@ export class Tab2ModalPage implements OnInit {
 
   }
 
-  getId(id:number){
-    if(this.id==id){
-      return true;
-    }else{
-      return false;
-    }
+  setId(){
+    this.id=this.http.getId();
   }
 
   loadOffers() {
     this.offers=this.http.getOffers();
-    this.id=this.http.getId();
   }
 
   close(){
