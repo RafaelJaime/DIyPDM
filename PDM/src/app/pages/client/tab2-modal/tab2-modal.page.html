@@ -10,7 +10,9 @@
 </ion-header>
 
 <ion-content>
-  <ion-item *ngFor="let offer of offers">
-    <ion-content>{{offer.headline}}</ion-content>
+  <ion-item>
+  <div *ngFor="let offer of offers">
+    <ion-label *ngIf="offer.id == 4">{{offer.headline}}</ion-label>
+  </div>
   </ion-item>
 </ion-content>
