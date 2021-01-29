@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('register', 'API\RegisterController@register');
 Route::post('login', 'API\RegisterController@login');
+Route::post('logout', 'API\RegisterController@logout');
 // Devuelve articulos
 Route::resource('articles', 'API\ArticleController');
 // Debes estar logueado

@@ -12,6 +12,10 @@ import { Tab2ModalPage } from '../tab2-modal/tab2-modal.page';
 })
 export class Tab2Page {
 
+  filter:any;
+
+  empty:any;
+
   loadedOffers: any[];
   offers: any[];
 
@@ -21,6 +25,11 @@ export class Tab2Page {
 
   constructor(private http: HttpService,public ModalController: ModalController) {
    this.loadOffers();
+  }
+
+  onChange(value){
+    this.filter=value.detail.value;
+    this.loadOffersById(this.filter);
   }
 
   loadOffers() {
@@ -44,7 +53,14 @@ export class Tab2Page {
     this.http.loadOffers().then(
       (res: any) => {
         if (res.success) {
-            this.offers = res.data;
+          this.offers = [];
+          for (let i = 0; i < res.data.length; i++) {
+            if(res.data[i].cicle_id == id){
+              this.offers += res.data[i];
+              console.log(this.offers);
+            }
+            
+          }
             this.http.setOffers(res.data);
             this.size=this.offers.length;
             console.log(this.offers);

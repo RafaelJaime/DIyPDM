@@ -24,7 +24,6 @@ export class HttpService {
 
   setOffers(offers:any){
     this.offers=offers;
-    console.log(this.offers);
   }
 
   getOffers(){
@@ -49,7 +48,6 @@ export class HttpService {
   }
 
   loadOffers(){
-    console.log(this.token);
     return new Promise(resolve => { 
       this.http.get(this.url + 'offers', 
       { 
@@ -61,6 +59,7 @@ export class HttpService {
       }); 
     });
   }
+
   loadOffersApplied(){
     console.log(this.token.data.id)
     return new Promise(resolve => { 
@@ -134,6 +133,7 @@ export class HttpService {
       });
     });
   }
+
   ApplyOffer (id:number) {
     return new Promise(resolve => { 
       this.http.post(this.url + 'applied/', {
