@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-page1',
@@ -7,13 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Page1Page implements OnInit {
 
-  constructor() { }
+  users:any;
+
+  actual:any;
+  constructor(private http: HttpService) {
+    // http.LoginUser('raulreyes@gmail.com', '123456');
+    this.cargarUsers();
+  }
 
   ngOnInit() {
   }
-
-  Activate(id:number){
-    console.log("Client number "+id+" activated");
+  cargarUsers() {
+    this.http.getUsers().then(
+      (res: any) => {
+        if (res.success) {
+          this.users = res.data;
+          console.log(res.data);
+        }
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
 }
