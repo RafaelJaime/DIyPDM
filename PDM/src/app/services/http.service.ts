@@ -182,9 +182,7 @@ export class HttpService {
   ApplyOffer(id: number) {
     return new Promise((resolve) => {
       this.http
-        .post(this.url + "applied/", {
-          user_id: this.token.data.id,
-          offer_id: id,
+        .get(this.url + "applied", {
           headers: new HttpHeaders().set(
             "Authorization",
             "Bearer " + this.token.data.token
@@ -198,6 +196,5 @@ export class HttpService {
             console.log(err);
           }
         );
-    });
-  }
+    });}
 }
