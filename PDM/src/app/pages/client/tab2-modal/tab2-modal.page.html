@@ -22,7 +22,7 @@
       <h2>Cicle Name: </h2>
       <ion-item>{{offer.cicle_name}}</ion-item>
       <h2>Date Max: </h2>
-      <ion-item>{{offer.date_max}}</ion-item>
+      <ion-item><ion-datetime disabled displayFormat="DD/MM/YYYY" value="{{offer.date_max}}"></ion-datetime></ion-item>
       <h2>Numbers of candidates: </h2>
       <ion-item>{{offer.num_candidates}}</ion-item>
     </div>

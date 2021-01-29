@@ -225,6 +225,5 @@ export class HttpService {
             console.log(err);
           }
         );
-    });
-  }
+    });}
 }
