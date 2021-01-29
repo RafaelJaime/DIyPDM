@@ -2,14 +2,12 @@
 
 <ion-content [fullscreen]="true">
   <ion-item>
-    <ion-label class="ion-text-center">Requested offers {{size}}</ion-label>
+    <h1 class="ion-text-center">Requested offers: {{size}}</h1>
   </ion-item>
 
     <ion-select [(ngModel)]="filter" (ionChange)="onChange($event)">
       <ion-select-option *ngFor="let offer of offers" value="{{offer.cicle_id}}" name="browsers">{{offer.cicle_name}}</ion-select-option>
     </ion-select>
-
-    <ion-button expand="block" shape="round" (click)="loadOffersById(offer.id)">Search</ion-button>
 
   <ion-list>
 

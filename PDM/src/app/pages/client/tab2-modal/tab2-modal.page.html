@@ -9,10 +9,24 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
-  <ion-item>
+<ion-item>
   <div *ngFor="let offer of offers">
-    <ion-label *ngIf="offer.id == id">{{offer.headline}}</ion-label>
+    <div *ngIf="offer.id == id">
+      <div>
+      <h2>Title: </h2>
+      <ion-item>{{offer.headline}}</ion-item>
+      <h2>Description:</h2>
+      <ion-item>{{offer.description}}</ion-item>
+      <h2>Cicle Name: </h2>
+      <ion-item>{{offer.cicle_name}}</ion-item>
+      <h2>Date Max: </h2>
+      <ion-item>{{offer.date_max}}</ion-item>
+      <h2>Numbers of candidates: </h2>
+      <ion-item>{{offer.num_candidates}}</ion-item>
+    </div>
+  </div>
   </div>
   </ion-item>
 </ion-content>
