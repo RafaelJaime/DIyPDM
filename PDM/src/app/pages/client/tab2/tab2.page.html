@@ -5,11 +5,11 @@
     <h1 class="ion-text-center">Requested offers: {{size}}</h1>
   </ion-item>
 
-    <ion-searchbar placeholder="Search"></ion-searchbar>
+    <ion-searchbar animated (ionChange)="Search($event)"></ion-searchbar>
 
   <ion-list>
 
-   <ion-card *ngFor="let offer of offers">
+   <ion-card *ngFor="let offer of offers | filter:textSearch">
     <ion-card-header>
       <ion-card-title>{{ offer.headline }}</ion-card-title>
     </ion-card-header>

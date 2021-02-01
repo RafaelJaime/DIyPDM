@@ -14,6 +14,7 @@ import { HeaderModule } from './components/header/header.module';
 
 import { HttpService } from './services/http.service';
 import { HttpClientModule } from '@angular/common/http';
+import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     IonicModule.forRoot(), 
     AppRoutingModule, 
     HeaderModule,
+    PipesModule,
     HttpClientModule,
     HeaderAdminModule
   ],

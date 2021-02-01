@@ -14,6 +14,8 @@ export class Tab2Page {
 
   filter:any;
 
+  textSearch='';
+
   empty:any;
 
   loadedOffers: any[];
@@ -25,6 +27,10 @@ export class Tab2Page {
 
   constructor(private http: HttpService,public ModalController: ModalController) {
    this.loadOffers();
+  }
+
+  Search( event ){
+    this.textSearch= event.detail.value;
   }
 
   onChange(value){
