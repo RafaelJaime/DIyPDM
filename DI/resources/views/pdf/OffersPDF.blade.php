@@ -10,7 +10,6 @@
 <body>
     <h1>SalesIn</h1>
     <h2>Offers By Cycle</h2>
-    <img src="{{asset('img/avatar0.png')}}"></img>
     <table border="1" class="table table-light table-hover default">
         <thead class="thead-light">
             <tr>
