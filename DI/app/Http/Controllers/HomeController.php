@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -25,20 +24,5 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
-    }
-    public function enviarEmail()
-    {
-        $data = [
-            'emailto' => "kocetapedoretaplaystore@gmail.com",
-            'subject' => "Mensaje importante",
-            'content' => "Este es un correo de prueba",
-        ];
-
-        Mail::send('vistaEmail', $data, function ($message) use ($data) {
-            $message->from('chimpancesjaimecamero@gmail.com');
-            $message->to($data['emailto'])->subject($data['subject']);
-        });
-
-        return redirect('/');
     }
 }

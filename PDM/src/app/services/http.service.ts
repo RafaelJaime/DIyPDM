@@ -6,7 +6,6 @@ import { off } from "process";
   providedIn: "root",
 })
 export class HttpService {
-  url2 = "https://randomuser.me/api/";
   url = "https://allsites.es/sales_in_api/public/api/";
 
   token: any;
@@ -35,10 +34,6 @@ export class HttpService {
   /**
    * Get
    */
-
-  loadUsers() {
-    return this.http.get(this.url2 + "?results=25").toPromise();
-  }
   loadNotices() {
     return this.http.get(this.url + "articles").toPromise();
   }
