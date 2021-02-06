@@ -102,14 +102,13 @@ export class Page4Page implements OnInit {
       const element = this.offers[i];
       let MesActual = parseInt(element.date_max.substring(5, 7));
       let AnoActual = parseInt(element.date_max.substring(0, 5));
-      console.log(MesActual + " " + AnoActual);
       for (let i = 0; i < this.NumOfertas.length; i++) {
         if (Mes-i == MesActual && Ano == AnoActual) {
           this.NumOfertas[i]+=1;
         }
       }
-      console.log(this.NumOfertas);
     }
+    console.log(this.NumOfertas);
     this.lineChartMethod();
   }
 
