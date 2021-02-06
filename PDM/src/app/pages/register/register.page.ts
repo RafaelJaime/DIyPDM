@@ -14,18 +14,34 @@ export class RegisterPage implements OnInit {
   email: string;
   password: string;
   c_password: string;
-  cycle_id: number;
-  constructor(private http: HttpService, private router: Router) { }
+  cicle_id: number;
+  cicles: any[];
+  constructor(private http: HttpService, private router: Router) {
+    this.loadCicles();
+  }
 
   ngOnInit() {
   }
   say(){
-    this.http.RegisterUser(this.name, this.surname, this.email, this.password, this.c_password, this.cycle_id)
+    this.http.RegisterUser(this.name, this.surname, this.email, this.password, this.c_password, this.cicle_id)
     .then( res=>{
       this.token = res;
       if (this.token.success) {
         this.router.navigate(['/tabs/tab1'])
       }
     });
+  }
+  loadCicles() {
+    this.http.getCicles().then(
+      (res: any) => {
+        if (res.success) {
+          this.cicles = res.data;
+          console.log(this.cicles);
+        }
+      },
+      (error) =>{
+        console.error(error);
+      }
+    );
   }
 }

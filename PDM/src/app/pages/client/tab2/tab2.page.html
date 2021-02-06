@@ -5,11 +5,19 @@
     <h1 class="ion-text-center">Requested offers: {{size}}</h1>
   </ion-item>
 
-    <ion-searchbar animated (ionChange)="Search($event)"></ion-searchbar>
+    <ion-select (ionChange)="OnChange($event)" [(ngModel)]="cicle">
+      <ion-select-option value="-1">All</ion-select-option>
+      <div *ngFor="let cicle of cicles">
+        <ion-select-option value="{{cicle.id}}">{{ cicle.name }}</ion-select-option>
+      </div>
+    </ion-select>
 
   <ion-list>
 
-   <ion-card *ngFor="let offer of offers | filter:textSearch">
+   <ion-card *ngFor="let offer of offers">
+     <div *ngIf="cicle === offer.cicle_id">
+       HAY UN CICLO 
+     </div>
     <ion-card-header>
       <ion-card-title>{{ offer.headline }}</ion-card-title>
     </ion-card-header>

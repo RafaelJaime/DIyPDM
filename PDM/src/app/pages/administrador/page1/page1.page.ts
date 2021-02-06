@@ -33,6 +33,7 @@ export class Page1Page implements OnInit {
   }
   Activate(id:number){
     this.http.actevateUser(id);
+    this.cargarUsers();
   }
 
 }

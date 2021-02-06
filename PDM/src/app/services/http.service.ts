@@ -22,6 +22,9 @@ export class HttpService {
   getId() {
     return this.id;
   }
+  getToken() {
+    return this.token;
+  }
 
   setOffers(offers: any) {
     this.offers = offers;
@@ -38,6 +41,25 @@ export class HttpService {
     return this.http.get(this.url + "articles").toPromise();
   }
 
+  loadOffersNotApplied() {
+    return new Promise((resolve) => {
+      this.http
+        .get(this.url + "offersNotApplied/" + this.token.data.id, {
+          headers: new HttpHeaders().set(
+            "Authorization",
+            "Bearer " + this.token.data.token
+          ),
+        })
+        .subscribe(
+          (data) => {
+            resolve(data);
+          },
+          (err) => {
+            console.log(err);
+          }
+        );
+    });
+  }
   loadOffers() {
     return new Promise((resolve) => {
       this.http
@@ -57,7 +79,6 @@ export class HttpService {
         );
     });
   }
-
   loadOffersApplied() {
     console.log(this.token.data.id);
     return new Promise((resolve) => {
@@ -97,7 +118,9 @@ export class HttpService {
         );
     });
   }
-
+  getCicles() {
+    return this.http.get(this.url + "cicles").toPromise();
+  }
   /**
    * post
    */
@@ -220,5 +243,33 @@ export class HttpService {
             console.log(err);
           }
         );
-    });}
+    });
+  }
+  unpplied(id: Number) {
+    return new Promise((resolve) => {
+      this.http
+        .post(
+          this.url + "unapplied",
+          {
+            user_id: this.token.data.id,
+            offer_id: id,
+          },
+          {
+            headers: new HttpHeaders().set(
+              "Authorization",
+              "Bearer " + this.token.data.token
+            ),
+          }
+        )
+        .subscribe(
+          (data) => {
+            console.log(data);
+            resolve(data);
+          },
+          (err) => {
+            console.log(err);
+          }
+        );
+    });
+  }
 }

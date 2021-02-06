@@ -32,7 +32,11 @@
   </ion-item>
   <ion-item>
     <ion-label position="floating">Ciclo id</ion-label>
-    <ion-input type="number" [(ngModel)]="cycle_id"></ion-input>
+    <ion-select [(ngModel)]="cicle_id">
+      <div *ngFor="let cicle of cicles">
+        <ion-select-option value="{{cicle.id}}">{{ cicle.name }}</ion-select-option>
+      </div>
+    </ion-select>
   </ion-item>
     <ion-button expand="block" shape="round" (click)="say()">Join Us</ion-button>
 
