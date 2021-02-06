@@ -4,9 +4,10 @@ import { Color, Label } from "ng2-charts";
 
 import { HttpClient } from "@angular/common/http";
 
-import { Chart } from 'chart.js';
-import { AfterViewInit, ElementRef, ViewChild } from '@angular/core';
-import { HttpService } from 'src/app/services/http.service';
+import { Chart } from "chart.js";
+import { AfterViewInit, ElementRef, ViewChild } from "@angular/core";
+import { HttpService } from "src/app/services/http.service";
+import { callbackify } from "util";
 
 @Component({
   selector: "app-page4",
@@ -14,16 +15,9 @@ import { HttpService } from 'src/app/services/http.service';
   styleUrls: ["./page4.page.scss"],
 })
 export class Page4Page implements OnInit {
-  @ViewChild('barCanvas') private barCanvas: ElementRef;
-  @ViewChild('doughnutCanvas') private doughnutCanvas: ElementRef;
-  @ViewChild('lineCanvas') private lineCanvas: ElementRef;
+  @ViewChild("lineCanvas") private lineCanvas: ElementRef;
 
-
-  barChart: any;
-  doughnutChart: any;
   lineChart: any;
-
-
 
   cicles: any[];
   cicle: any;
@@ -32,10 +26,7 @@ export class Page4Page implements OnInit {
   meses: any;
   NumOfertas: any[];
   constructor(private http: HttpService) {
-    this.meses = ['1', '2', '3', '4', '5'];
-    this.cicle = -1;
     this.loadCicles();
-    this.loadOffers();
   }
   loadCicles() {
     this.http.getCicles().then(
@@ -50,42 +41,22 @@ export class Page4Page implements OnInit {
       }
     );
   }
-  loadOffers() {
-    this.http.loadOffersNotApplied().then(
-      (res: any) => {
-        if (res.success) {
-          if (this.cicle == -1) {
-            this.offers = res.data;
-            this.http.setOffers(res.data);
-            console.log(this.offers);
-          } else {
-            this.offers = [];
-            for (let i = 0; i < res.data.length; i++) {
-              const element = res.data[i];
-              if (this.cicle == element.cicle_id) {
-                this.offers.push(element);
-              }
-            }
-          }
-        }
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  }
+
   OnChange(event) {
     this.cicle = event.detail.value;
+    console.log(this.cicle);
     this.loadOffers();
+    console.log(this.offers);
     // Todo esto para los meses
     this.meses = [];
     for (let i = 0; i < this.offers.length; i++) {
       const element = this.offers[i];
+      console.log(element);
       this.meses.push(element.date_max);
     }
     // Esto para ordenarlos y coger sus 6 anteriores
     this.meses.sort();
-    let fecha = this.meses[this.meses.length-1];
+    let fecha = this.meses[this.meses.length - 1];
     this.meses = [];
     for (let i = 0; i < 6; i++) {
       let numero = parseInt(fecha.substring(5, 7)) - i;
@@ -97,14 +68,14 @@ export class Page4Page implements OnInit {
 
     this.NumOfertas = [0, 0, 0, 0, 0, 0];
     let Mes = parseInt(fecha.substring(5, 7));
-    let Ano = parseInt(fecha.substring(0, 5));
+    let Ano = parseInt(fecha.substring(0, 4));
     for (let i = 0; i < this.offers.length; i++) {
       const element = this.offers[i];
       let MesActual = parseInt(element.date_max.substring(5, 7));
-      let AnoActual = parseInt(element.date_max.substring(0, 5));
+      let AnoActual = parseInt(element.date_max.substring(0, 4));
       for (let i = 0; i < this.NumOfertas.length; i++) {
-        if (Mes-i == MesActual && Ano == AnoActual) {
-          this.NumOfertas[i]+=1;
+        if (Mes - i == MesActual && Ano == AnoActual) {
+          this.NumOfertas[i] += 1;
         }
       }
     }
@@ -112,40 +83,60 @@ export class Page4Page implements OnInit {
     this.lineChartMethod();
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
   ngAfterViewInit() {
     this.lineChartMethod();
   }
   lineChartMethod() {
     this.lineChart = new Chart(this.lineCanvas.nativeElement, {
-      type: 'line',
+      type: "line",
       data: {
         labels: this.meses,
         datasets: [
           {
-            label: 'Offer per month',
+            label: "Offer per month",
             fill: false,
             lineTension: 0.1,
-            backgroundColor: 'rgba(75,192,192,0.4)',
-            borderColor: 'rgba(75,192,192,1)',
-            borderCapStyle: 'butt',
+            backgroundColor: "rgba(75,192,192,0.4)",
+            borderColor: "rgba(75,192,192,1)",
+            borderCapStyle: "butt",
             borderDash: [],
             borderDashOffset: 0.0,
-            borderJoinStyle: 'miter',
-            pointBorderColor: 'rgba(75,192,192,1)',
-            pointBackgroundColor: '#fff',
+            borderJoinStyle: "miter",
+            pointBorderColor: "rgba(75,192,192,1)",
+            pointBackgroundColor: "#fff",
             pointBorderWidth: 1,
             pointHoverRadius: 5,
-            pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-            pointHoverBorderColor: 'rgba(220,220,220,1)',
+            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
             data: this.NumOfertas,
             spanGaps: false,
-          }
-        ]
-      }
+          },
+        ],
+      },
     });
+  }
+  loadOffers() {
+    this.http.loadOffersNotApplied().then(
+      (res: any) => {
+        if (res.success) {
+          this.offers = [];
+          for (let i = 0; i < res.data.length; i++) {
+            const element = res.data[i];
+            if (this.cicle == element.cicle_id) {
+              this.offers.push(element);
+            }
+          }
+        }
+        return true;
+      },
+      (error) => {
+        console.error(error);
+        return false;
+      }
+    );
   }
 }
