@@ -11,9 +11,9 @@ class UserController extends Controller
 
         $filter=$request->get('filter');
         if($filter === '1' || $filter === '0'){
-            $datos['users']=User::where('activate','=',$filter)->get();
+            $datos['users']=User::where('activate','=',$filter)->paginate(10);
         } else {
-            $datos['users']=User::all();
+            $datos['users']=User::paginate(10);
         }
         return view('users.index', $datos);
     }
