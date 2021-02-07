@@ -9,8 +9,8 @@ Página principal
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
-<a href="{{url('OffersByCycle')}}" class="btn btn-info btn-flat">Offers Reports</a>
-<a href="{{url('UsersByOffer')}}" class="btn btn-info btn-flat">Users by Offers</a>
+<a href="{{url('OffersByYear')}}" class="btn btn-info btn-flat">Offers Reports By Year</a>
+<a href="{{url('OffersByCycle')}}" class="btn btn-info btn-flat">Offers By Cycles</a>
 
 </div>
 <!-- End of Main Content -->

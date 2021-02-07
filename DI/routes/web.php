@@ -40,10 +40,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('pdfb', 'InformesController@users')->name('pdfb');
 
     // Ofertas por curso
-    Route::get('OffersByCycle', 'InformesController@Offers');
+    Route::get('OffersByYear', 'InformesController@Offers');
     Route::get('pdfOffer', 'InformesController@GeneratePDFOffers');
 
     // Alumnos por ofertas
-    Route::get('UsersByOffer', 'InformesController@Users');
+    Route::get('UsersByOffer', 'InformesController@UsersByOffers');
+    Route::get('OffersByCycle', 'InformesController@OffersByCycle');
     Route::get('pdfUser', 'InformesController@GeneratePDFUsers');
 });

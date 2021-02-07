@@ -32,6 +32,13 @@ class InformesController extends Controller
         return view('pdf.Offers', compact('users','offers','applieds','years','now'));
     }
 
+    public function cicles()
+    {
+        $cicles = cicle::all();
+
+        return view('pdf.UsersCycle', compact('cicles'));
+    }
+
     public function GeneratePDFOffers(Request $request)
     {
         $year = $request->get('year');
@@ -46,13 +53,24 @@ class InformesController extends Controller
 
 
     //--------------------------- Users by Offers ---------------------------
-    public function users()
+    public function UsersByOffers(Request $request)
     {
+        $filter = $request->get('cicle_id');
         $users = User::all();
-        $offers = offer::all();
+        $offers = offer::where('cicle_id','=',$filter)->get();
         $applieds = applied::all();
         $cycles = cicle::all();
-        return view('pdf.Users', compact('users', 'offers', 'applieds', 'cycles'));
+        return view('pdf.UsersOffer', compact('users', 'offers', 'applieds', 'cycles'));
+    }
+    
+    public function OffersByCycle(Request $request)
+    {
+        $filter = $request->get('cicle_id');
+        $users = User::all();
+        $offers = offer::where('cicle_id','=',$filter)->get();
+        $applieds = applied::all();
+        $cicles = cicle::all();
+        return view('pdf.UsersCycle', compact('users', 'offers', 'applieds', 'cicles'));
     }
 
     public function GeneratePDFUsers(Request $request)
