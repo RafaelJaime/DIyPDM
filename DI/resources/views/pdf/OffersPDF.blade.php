@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <img style="float: right;" src="img/logotipo.png">
     <h1>SalesIn</h1>
     <h2>Offers By Cycle</h2>
     <table border="1" class="table table-light table-hover default">
