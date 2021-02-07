@@ -16,6 +16,8 @@ import { HttpService } from './services/http.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PipesModule } from './pipes/pipes.module';
 
+import { ChartsModule } from 'ng2-charts';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -26,7 +28,8 @@ import { PipesModule } from './pipes/pipes.module';
     HeaderModule,
     PipesModule,
     HttpClientModule,
-    HeaderAdminModule
+    HeaderAdminModule, 
+    ChartsModule,
   ],
   providers: [
     StatusBar,

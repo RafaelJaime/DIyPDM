@@ -1,5 +1,20 @@
 <app-header-admin [title]="title || 'Graphs'"></app-header-admin>
 
 <ion-content>
-
+  Selecciona un ciclo: 
+  <ion-select (ionChange)="OnChange($event)" [(ngModel)]="cicle">
+    <div *ngFor="let cicle of cicles">
+      <ion-select-option value="{{cicle.id}}">{{ cicle.name }}</ion-select-option>
+    </div>
+  </ion-select>
+    <div class="ion-padding">
+        <ion-card>
+          <ion-card-header>
+            Number of offers in last 6 month
+          </ion-card-header>
+          <ion-card-content>
+            <canvas #lineCanvas style="position: relative; height:20vh; width:40vw"></canvas>
+          </ion-card-content>
+        </ion-card>
+      </div>
 </ion-content>

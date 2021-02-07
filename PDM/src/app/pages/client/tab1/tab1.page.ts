@@ -8,10 +8,11 @@ import { HttpService } from 'src/app/services/http.service';
 export class Tab1Page {
 
   noticias: any[];
+  check: any;
 
   constructor(private http: HttpService) {
-    http.LoginUser('a@a.com', 'a');
-    this.cargarNoticias();
+    this.check = false;
+    this.cargarNoticiasPorId();
   }
   cargarNoticias() {
     this.http.loadNotices().then(
@@ -25,5 +26,32 @@ export class Tab1Page {
         console.error(error);
       }
     );
+  }
+  cargarNoticiasPorId () {
+    this.http.loadNotices().then(
+      (res: any) => {
+        if (res.success) {
+          this.noticias = [];
+          if (!this.check) {
+            for (let i = 0; i < res.data.length; i++) {
+              const element = res.data[i];
+              if (element.cicle_id == this.http.getToken().data.cicle_id) {
+                console.log(element);
+                this.noticias.push(element);
+              }
+            }
+          } else {
+            this.noticias = res.data;
+          }
+          console.log(this.noticias);
+        }
+      },
+      (error) =>{
+        console.error(error);
+      }
+    );
+  }
+  onChange() {
+    this.cargarNoticiasPorId();
   }
 }

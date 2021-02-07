@@ -12,7 +12,7 @@ export class Page1Page implements OnInit {
 
   actual:any;
   constructor(private http: HttpService) {
-    // http.LoginUser('raulreyes@gmail.com', '123456');
+    http.LoginUser('raulreyes@gmail.com', '123456');
     this.cargarUsers();
   }
 
@@ -33,6 +33,7 @@ export class Page1Page implements OnInit {
   }
   Activate(id:number){
     this.http.actevateUser(id);
+    this.cargarUsers();
   }
 
 }
