@@ -26,6 +26,8 @@ export class Page4Page implements OnInit {
   meses: any;
   NumOfertas: any[];
   constructor(private http: HttpService) {
+    this.NumOfertas = [0, 0, 0, 0, 0, 0];
+    meses: [0, 0, 0, 0, 0, 0];
     this.loadCicles();
   }
   loadCicles() {
@@ -47,8 +49,9 @@ export class Page4Page implements OnInit {
     console.log(this.cicle);
     this.loadOffers();
     console.log(this.offers);
-    // Todo esto para los meses
+    // Todo esto para los mesesthis.NumOfertas = [0, 0, 0, 0, 0, 0];
     this.meses = [];
+    setTimeout(()=>{
     for (let i = 0; i < this.offers.length; i++) {
       const element = this.offers[i];
       console.log(element);
@@ -80,7 +83,10 @@ export class Page4Page implements OnInit {
       }
     }
     console.log(this.NumOfertas);
-    this.lineChartMethod();
+    
+      this.lineChartMethod();
+  },1000);
+    
   }
 
   ngOnInit() {}
