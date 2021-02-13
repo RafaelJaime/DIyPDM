@@ -23,9 +23,21 @@ export class Page4Page implements OnInit {
   cicle: any;
   offers: any[];
 
-  meses: any;
+  fecha: any;
+  meses: any[];
   NumOfertas: any[];
   constructor(private http: HttpService) {
+    this.NumOfertas = [0, 0, 0, 0, 0, 0];
+    this.meses = [0, 0, 0, 0, 0, 0];
+    this.fecha = new Date().toISOString();
+    this.meses = [];
+    for (let i = 0; i < 6; i++) {
+      let numero = parseInt(this.fecha.substring(5, 7)) - i;
+      if (numero <= 0) {
+        numero += 12;
+      }
+      this.meses.push(numero.toString());
+    }
     this.loadCicles();
   }
   loadCicles() {
@@ -33,7 +45,6 @@ export class Page4Page implements OnInit {
       (res: any) => {
         if (res.success) {
           this.cicles = res.data;
-          console.log(this.cicles);
         }
       },
       (error) => {
@@ -44,43 +55,36 @@ export class Page4Page implements OnInit {
 
   OnChange(event) {
     this.cicle = event.detail.value;
-    console.log(this.cicle);
     this.loadOffers();
-    console.log(this.offers);
-    // Todo esto para los meses
-    this.meses = [];
-    for (let i = 0; i < this.offers.length; i++) {
-      const element = this.offers[i];
-      console.log(element);
-      this.meses.push(element.date_max);
-    }
-    // Esto para ordenarlos y coger sus 6 anteriores
-    this.meses.sort();
-    let fecha = this.meses[this.meses.length - 1];
-    this.meses = [];
-    for (let i = 0; i < 6; i++) {
-      let numero = parseInt(fecha.substring(5, 7)) - i;
-      if (numero <= 0) {
-        numero += 12;
-      }
-      this.meses.push(numero.toString());
-    }
-
-    this.NumOfertas = [0, 0, 0, 0, 0, 0];
-    let Mes = parseInt(fecha.substring(5, 7));
-    let Ano = parseInt(fecha.substring(0, 4));
-    for (let i = 0; i < this.offers.length; i++) {
-      const element = this.offers[i];
-      let MesActual = parseInt(element.date_max.substring(5, 7));
-      let AnoActual = parseInt(element.date_max.substring(0, 4));
-      for (let i = 0; i < this.NumOfertas.length; i++) {
-        if (Mes - i == MesActual && Ano == AnoActual) {
-          this.NumOfertas[i] += 1;
+    console.log(this.fecha.substring(5, 7));
+    console.log(this.fecha.substring(0, 4));
+    setTimeout(() => {
+      // Esto para ordenarlos y coger sus 6 anteriores
+      console.log(this.offers);
+      this.NumOfertas = [0, 0, 0, 0, 0, 0];
+      let Mes = parseInt(this.fecha.substring(5, 7));
+      let Ano = parseInt(this.fecha.substring(0, 4));
+      for (let i = 0; i < this.offers.length; i++) {
+        const element = this.offers[i];
+        let MesActual = parseInt(element.date_max.substring(5, 7));
+        let AnoActual = parseInt(element.date_max.substring(0, 4));
+        for (let i = 0; i < this.NumOfertas.length; i++) {
+          let otroMes = Mes - i;
+          let otroAno = Ano;
+          if (otroMes <= 0 ) {
+            otroMes +=12;
+            otroAno-=1;
+          }
+          console.log(otroMes + "/" + Ano);
+          if ( otroMes === MesActual && otroAno === AnoActual) {
+            this.NumOfertas[i] += 1;
+          }
         }
       }
-    }
-    console.log(this.NumOfertas);
-    this.lineChartMethod();
+      console.log(this.NumOfertas);
+
+      this.lineChartMethod();
+    }, 1000);
   }
 
   ngOnInit() {}

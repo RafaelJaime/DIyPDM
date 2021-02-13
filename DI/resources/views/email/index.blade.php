@@ -13,15 +13,20 @@ Página principal
                 <h2>Formulario de envio de email.</h2>
             </div>
             <div class="box-body">
-                <form action="{{route ('envioEmail')}}" method="get">
+                <form action="{{route ('envioEmail')}}" enctype="multipart/form-data" method="get">
+                {{ csrf_field() }}
                 <label for="to">To: </label>
                 <input type="text" name="to">
+                <p>Separate with commas every account (first@example.com,second@example.com).</p>
                 <br>
                 <label for="subject" size=500>Subject: </label>
                 <input type="text" name="subject">
                 <br>
                 <label for="contenido">Content of the mail: </label>
                 <textarea name="contenido" cols="30" rows="10"></textarea>
+                <br>
+                <label for="file">Attachment: </label>
+                <input type="file" name="file">
             <hr>
                 <button type="submit" class="btn btn-info btn-flat">Send email</button>
                 </form>

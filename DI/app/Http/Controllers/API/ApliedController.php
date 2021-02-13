@@ -27,7 +27,8 @@ class ApliedController extends Controller
         }
            
         $applied = applied::create($input);
-
+        $offer = offer::where('id', $input['offer_id']);
+        $offer -> increment('num_candidates');
         return response()->json(['success' => true, 'data' => $applied->toArray()], $this->successStatus);
     }
     public function destroy(applied $applied)
