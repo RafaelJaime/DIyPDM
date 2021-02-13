@@ -17,9 +17,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { PipesModule } from './pipes/pipes.module';
 
 import { ChartsModule } from 'ng2-charts';
+import { TextPipe } from './pipes/text.pipe';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, TextPipe],
   entryComponents: [],
   imports: [
     BrowserModule, 
