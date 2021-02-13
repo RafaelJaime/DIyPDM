@@ -272,4 +272,28 @@ export class HttpService {
         );
     });
   }
+  // DELETE 
+  deleteOffer(id:number){
+    return new Promise((resolve) => {
+      this.http
+        .delete(
+          this.url + "unapplied" + "/" + id,
+          {
+            headers: new HttpHeaders().set(
+              "Authorization",
+              "Bearer " + this.token.data.token
+            ),
+          }
+        )
+        .subscribe(
+          (data) => {
+            console.log(data);
+            resolve(data);
+          },
+          (err) => {
+            console.log(err);
+          }
+        );
+    });
+  }
 }
