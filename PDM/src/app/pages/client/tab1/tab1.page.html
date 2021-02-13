@@ -22,7 +22,11 @@
           </ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
-            <p>{{ noticia.description | slice:0:100 }} show more...</p>
+          <div>
+            {{ noticia.description | text: true}}
+          </div>
+          <div>
+          </div>
         </ion-card-content>
       </ion-card>
     </ion-item>

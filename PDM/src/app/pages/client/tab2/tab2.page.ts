@@ -42,7 +42,7 @@ export class Tab2Page {
             this.offers = [];
             for (let i = 0; i < res.data.length; i++) {
               const element = res.data[i];
-              if (!element.deleted) {
+              if (element.deleted == 0) {
                 this.offers.push(element);
               }
             }
@@ -54,7 +54,7 @@ export class Tab2Page {
             this.offers = [];
             for (let i = 0; i < res.data.length; i++) {
               const element = res.data[i];
-              if (this.cicle == element.cicle_id) {
+              if (this.cicle == element.cicle_id && element.deleted == 0) {
                 this.offers.push(element);
                 this.size += 1;
               }
