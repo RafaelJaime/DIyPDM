@@ -19,10 +19,12 @@
    <ion-card *ngFor="let offer of offers">
     <ion-card-header>
     <ion-card-title>
-      <div *ngIf="offer.cicle_name === Automocion">
+      <div *ngIf="offer.cicle_name === 'Automocion'; else elseBlock">
         <img src="assets/logos/auto.png" width="50" height="50" />
       </div>
+      <ng-template #elseBlock>
       <img src="assets/logos/{{offer.cicle_name | lowercase }}.png" width="50" height="50" />
+      </ng-template>
       {{ offer.headline }}
     </ion-card-title>
       
