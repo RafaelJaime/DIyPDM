@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { IonInfiniteScroll } from '@ionic/angular';
 import { HttpService } from 'src/app/services/http.service';
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,8 @@ import { HttpService } from 'src/app/services/http.service';
 })
 export class Tab1Page {
 
+  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
+
   noticias: any[];
   check: any;
 
@@ -14,6 +17,7 @@ export class Tab1Page {
     this.check = false;
     this.cargarNoticiasPorId();
   }
+
   cargarNoticias() {
     this.http.loadNotices().then(
       (res: any) => {
