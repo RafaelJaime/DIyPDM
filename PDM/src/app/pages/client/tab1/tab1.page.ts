@@ -18,6 +18,22 @@ export class Tab1Page {
     this.cargarNoticiasPorId();
   }
 
+  loadData(event){
+    console.log('Loading');
+
+    setTimeout(() => {
+
+      if( this.noticias.length > 8){
+        event.target.complete();
+        this.infiniteScroll.disabled = true;
+        return;
+      }
+      
+      event.target.complete();
+
+    }, 1000);
+  }
+
   cargarNoticias() {
     this.http.loadNotices().then(
       (res: any) => {
