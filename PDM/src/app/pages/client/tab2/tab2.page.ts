@@ -12,7 +12,6 @@ import { Tab2ModalPage } from "../tab2-modal/tab2-modal.page";
 export class Tab2Page {
   empty: any;
 
-  loadedOffers: any[];
   offers: any[];
 
   offersViewed: any[];
@@ -40,19 +39,22 @@ export class Tab2Page {
       (res: any) => {
         if (res.success) {
           if (this.cicle == -1) {
-            this.loadedOffers = res.data;
-            this.offers = res.data;
+            this.offers = [];
+            for (let i = 0; i < res.data.length; i++) {
+              const element = res.data[i];
+              if (!element.deleted) {
+                this.offers.push(element);
+              }
+            }
             this.http.setOffers(res.data);
             this.size = this.offers.length;
             console.log(this.offers);
           } else {
             this.size = 0;
-            this.loadedOffers = [];
             this.offers = [];
             for (let i = 0; i < res.data.length; i++) {
               const element = res.data[i];
               if (this.cicle == element.cicle_id) {
-                this.loadedOffers.push(element);
                 this.offers.push(element);
                 this.size += 1;
               }

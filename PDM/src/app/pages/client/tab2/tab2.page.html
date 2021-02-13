@@ -13,11 +13,10 @@
     </ion-select>
 
   <ion-list>
-
+  <div *ngIf="offers?.length == 0">
+    No offers at the moment
+  </div>
    <ion-card *ngFor="let offer of offers">
-     <div *ngIf="cicle === offer.cicle_id">
-       HAY UN CICLO 
-     </div>
     <ion-card-header>
       <ion-card-title>{{ offer.headline }}</ion-card-title>
     </ion-card-header>
