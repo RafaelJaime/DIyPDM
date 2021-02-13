@@ -5,11 +5,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TextPipe implements PipeTransform {
 
-  transform(text: string): unknown {
+  transform(text: string): any {
+    let newString: any;
     if (text.length>= 100) {
-      return text;
+      newString = text.slice(0, 100) + " " + "showMore...";
     }
-    return null;
+    return newString;
   }
 
 }
