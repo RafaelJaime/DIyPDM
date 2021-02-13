@@ -22,9 +22,7 @@
           </ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
-          <div *ngIf="noticia.description.length >= 30">
-            <p>{{ noticia.description }}</p>
-          </div>
+            <p>{{ noticia.description | slice:0:30 }}</p>
         </ion-card-content>
       </ion-card>
     </ion-item>
