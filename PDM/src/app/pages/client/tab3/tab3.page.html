@@ -7,7 +7,13 @@
     <ion-item>
       <ion-card>
         <ion-card-header>
-          <ion-card-title>{{ offer.headline }}</ion-card-title>
+          <ion-card-title>
+          <div *ngIf="offer.cicle_name === Automocion">
+            <img src="assets/logos/auto.png" width="50" height="50" />
+          </div>
+          <img src="assets/logos/{{offer.cicle_name | lowercase }}.png" width="50" height="50" />
+          {{ offer.headline }}
+        </ion-card-title>
         </ion-card-header>
         <ion-card-content position="fixed">
           {{ offer.description }}
