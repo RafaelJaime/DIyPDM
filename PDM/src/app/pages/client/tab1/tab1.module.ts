@@ -8,6 +8,7 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
 import { ExploreContainerComponentModule } from 'src/app/explore-container/explore-container.module';
 import { HeaderModule } from 'src/app/components/header/header.module';
 import { PipesModule } from 'src/app/pipes/pipes.module';
+import { ComponentsModule } from "../../../components/components.module";
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
     ExploreContainerComponentModule,
     Tab1PageRoutingModule,
     HeaderModule,
-    PipesModule
+    PipesModule,
+    ComponentsModule
   ],
   declarations: [Tab1Page]
 })

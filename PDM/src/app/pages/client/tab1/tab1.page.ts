@@ -1,6 +1,7 @@
 import { Component, ViewChild } from "@angular/core";
 import { IonInfiniteScroll } from "@ionic/angular";
 import { HttpService } from "src/app/services/http.service";
+
 @Component({
   selector: "app-tab1",
   templateUrl: "tab1.page.html",
@@ -32,6 +33,7 @@ export class Tab1Page {
       event.target.disabled = true;
       event.target.complete();
     } else {
+      this.noticias = [];
       this.http.loadNotices().then(
         (res: any) => {
           if (res.success) {

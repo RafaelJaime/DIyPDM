@@ -16,36 +16,37 @@
   <div *ngIf="offers?.length == 0">
     No offers at the moment
   </div>
-   <ion-card *ngFor="let offer of offers">
+  <ion-card *ngFor="let offer of offers">
     <ion-card-header>
-    <ion-card-title>
-      <div *ngIf="offer.cicle_name === 'Automocion'; else elseBlock">
-        <img src="assets/logos/auto.png" width="50" height="50" />
-      </div>
-      <ng-template #elseBlock>
-      <img src="assets/logos/{{offer.cicle_name | lowercase }}.png" width="50" height="50" />
-      </ng-template>
-      {{ offer.headline }}
-    </ion-card-title>
+      <ion-card-title>
+        <div *ngIf="offer.cicle_name === 'Automocion'; else elseBlock">
+          <img src="assets/logos/auto.png" width="50" height="50" />
+        </div>
+        <ng-template #elseBlock>
+        <img src="assets/logos/{{offer.cicle_name | lowercase }}.png" width="50" height="50" />
+        </ng-template>
+        {{ offer.headline }}
+      </ion-card-title>
+        
+      </ion-card-header>
       
-    </ion-card-header>
-    
-      <ion-card-content position="fixed">
-       {{ offer.description }}
-      </ion-card-content>
-      <ion-footer>
-        <ion-toolbar>
-         <ion-segment type="submit" swipeGesture="true" scrollable="true">
-          <ion-segment-button value="eye" (click)="ViewMore(offer.id)">
-            <ion-icon name="eye"></ion-icon>
-          </ion-segment-button>
-          <ion-segment-button value="checkmark" (click)="ApplyOffer(offer.id)">
-            <ion-icon name="checkmark"></ion-icon>
-          </ion-segment-button>
-        </ion-segment>
-        </ion-toolbar>
-      </ion-footer>
-    </ion-card>
+        <ion-card-content position="fixed">
+         {{ offer.description }}
+        </ion-card-content>
+        <ion-footer>
+          <ion-toolbar>
+           <ion-segment type="submit" swipeGesture="true" scrollable="true">
+            <ion-segment-button value="eye" (click)="ViewMore(offer.id)">
+              <ion-icon name="eye"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="checkmark" (click)="ApplyOffer(offer.id)">
+              <ion-icon name="checkmark"></ion-icon>
+            </ion-segment-button>
+          </ion-segment>
+          </ion-toolbar>
+        </ion-footer>
+  </ion-card>
+  
  </ion-list>
 </ion-content>
 
